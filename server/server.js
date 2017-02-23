@@ -21,8 +21,7 @@ const opts = {
   cert: fs.readFileSync(__dirname + "/cert/server.crt")
 }
 
-http2.createServer(opts, app)
-     .listen(PORT, () => {
+	 app.listen(PORT, () => {
        console.log(`up and running @: ${os.hostname()} on port: ${PORT}`);
        console.log(`enviroment: ${process.env.NODE_ENV}`);
      });
