@@ -47,7 +47,6 @@
     "zone.js": "^0.6.23"
   },
   "devDependencies": {
-    "@types/core-js": "^0.9.35",
     "@types/node": "^7.0.5",
     "aliv": "^1.6.0",
     "babili": "0.0.6",
