@@ -60,24 +60,27 @@ var TodoCmp = (function () {
         this.warning = false;
         this.message = "";
         if (navigator.geolocation) {
+            console.log("Getting position");
             // Gets the current position.
             this.geolocation.getCurrentPosition().forEach(
             // Next.
             function (position) {
-                if (_this.center.lat() != position.coords.latitude && _this.center.lng() != position.coords.longitude) {
-                    // Sets the new center map & zoom.
-                    // New center object: triggers OnChanges.
-                    _this.center = position.coords.latitude + ',' + position.coords.longitude;
-                    _this.zoom = 11;
-                    // Translates the location into address.
-                    // this.geocoding.geocode(this.center).forEach(
-                    // Next.
-                    //     (results: google.maps.GeocoderResult[]) => {
-                    // Sets the marker to the center map.
-                    //         this.setMarker(this.center, "your locality", results[0].formatted_address);
-                    //     }, null
-                    // ).then(() => console.log('Geocoding service: completed.'));
-                }
+                //  if (this.center.lat() != position.coords.latitude && this.center.lng() != position.coords.longitude) {
+                // Sets the new center map & zoom.
+                // New center object: triggers OnChanges.
+                _this.center = position.coords.latitude + ',' + position.coords.longitude;
+                _this.zoom = "11";
+                _this.message = "location detected";
+                _this.warning = true;
+                // Translates the location into address.
+                // this.geocoding.geocode(this.center).forEach(
+                // Next.
+                //     (results: google.maps.GeocoderResult[]) => {
+                // Sets the marker to the center map.
+                //         this.setMarker(this.center, "your locality", results[0].formatted_address);
+                //     }, null
+                // ).then(() => console.log('Geocoding service: completed.'));
+                //  }
             }, null).then(function () { return console.log('Geolocation service: completed.'); }).catch(function (error) {
                 if (error.code > 0) {
                     switch (error.code) {
