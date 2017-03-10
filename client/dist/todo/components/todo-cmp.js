@@ -1,1 +1,64 @@
-"use strict";var __decorate=this&&this.__decorate||function(t,e,o,r){var i,s=arguments.length,c=s<3?e:null===r?r=Object.getOwnPropertyDescriptor(e,o):r;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)c=Reflect.decorate(t,e,o,r);else for(var d=t.length-1;d>=0;d--)(i=t[d])&&(c=(s<3?i(c):s>3?i(e,o,c):i(e,o))||c);return s>3&&c&&Object.defineProperty(e,o,c),c},__metadata=this&&this.__metadata||function(t,e){if("object"==typeof Reflect&&"function"==typeof Reflect.metadata)return Reflect.metadata(t,e)};Object.defineProperty(exports,"__esModule",{value:!0});var core_1=require("@angular/core"),todo_service_1=require("../services/todo-service"),TodoCmp=function(){function t(t){this._todoService=t,this.title="ng2do",this.todos=[],this.todoForm={todoMessage:""}}return t.prototype.ngOnInit=function(){this._getAll()},t.prototype._getAll=function(){var t=this;this._todoService.getAll().subscribe(function(e){t.todos=e})},t.prototype.add=function(t){var e=this;this._todoService.add(t).subscribe(function(t){e.todos.push(t),e.todoForm.todoMessage=""})},t.prototype.remove=function(t){var e=this;this._todoService.remove(t).subscribe(function(){e.todos.forEach(function(o,r){if(o._id===t)return e.todos.splice(r,1)})})},t}();TodoCmp=__decorate([core_1.Component({selector:"todo-cmp",templateUrl:"todo/templates/todo.html",styleUrls:["todo/styles/todo.css"]}),__metadata("design:paramtypes",[todo_service_1.TodoService])],TodoCmp),exports.TodoCmp=TodoCmp;
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var todo_service_1 = require("../services/todo-service");
+var TodoCmp = (function () {
+    function TodoCmp(_todoService) {
+        this._todoService = _todoService;
+        this.title = "ng2do";
+        this.todos = [];
+        this.todoForm = {
+            "todoMessage": ""
+        };
+    }
+    TodoCmp.prototype.ngOnInit = function () {
+        this._getAll();
+    };
+    TodoCmp.prototype._getAll = function () {
+        var _this = this;
+        this._todoService
+            .getAll()
+            .subscribe(function (todos) {
+            _this.todos = todos;
+        });
+    };
+    TodoCmp.prototype.add = function (message) {
+        var _this = this;
+        this._todoService
+            .add(message)
+            .subscribe(function (m) {
+            _this.todos.push(m);
+            _this.todoForm.todoMessage = "";
+        });
+    };
+    TodoCmp.prototype.remove = function (id) {
+        var _this = this;
+        this._todoService
+            .remove(id)
+            .subscribe(function () {
+            _this.todos.forEach(function (t, i) {
+                if (t._id === id)
+                    return _this.todos.splice(i, 1);
+            });
+        });
+    };
+    return TodoCmp;
+}());
+TodoCmp = __decorate([
+    core_1.Component({
+        selector: "todo-cmp",
+        templateUrl: "todo/templates/todo.html",
+        styleUrls: ["todo/styles/todo.css"]
+    }),
+    __metadata("design:paramtypes", [todo_service_1.TodoService])
+], TodoCmp);
+exports.TodoCmp = TodoCmp;

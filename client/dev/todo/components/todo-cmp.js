@@ -11,10 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var todo_service_1 = require("../services/todo-service");
+var geolocation_service_1 = require("../services/geolocation-service");
 var TodoCmp = (function () {
-    function TodoCmp(_todoService) {
+    function TodoCmp(_todoService, geolocation) {
         this._todoService = _todoService;
-        this.title = "ng2do";
+        this.geolocation = geolocation;
+        this.title = "UNAUTHORIZED SFMOMA SHOW";
         this.todos = [];
         this.todoForm = {
             "todoMessage": ""
@@ -22,6 +24,7 @@ var TodoCmp = (function () {
     }
     TodoCmp.prototype.ngOnInit = function () {
         this._getAll();
+        this.getCurrentPosition();
     };
     TodoCmp.prototype._getAll = function () {
         var _this = this;
@@ -51,6 +54,53 @@ var TodoCmp = (function () {
             });
         });
     };
+    // Tries to get the current position.
+    TodoCmp.prototype.getCurrentPosition = function () {
+        var _this = this;
+        this.warning = false;
+        this.message = "";
+        if (navigator.geolocation) {
+            // Gets the current position.
+            this.geolocation.getCurrentPosition().forEach(
+            // Next.
+            function (position) {
+                if (_this.center.lat() != position.coords.latitude && _this.center.lng() != position.coords.longitude) {
+                    // Sets the new center map & zoom.
+                    // New center object: triggers OnChanges.
+                    _this.center = position.coords.latitude + ',' + position.coords.longitude;
+                    _this.zoom = 11;
+                    // Translates the location into address.
+                    // this.geocoding.geocode(this.center).forEach(
+                    // Next.
+                    //     (results: google.maps.GeocoderResult[]) => {
+                    // Sets the marker to the center map.
+                    //         this.setMarker(this.center, "your locality", results[0].formatted_address);
+                    //     }, null
+                    // ).then(() => console.log('Geocoding service: completed.'));
+                }
+            }, null).then(function () { return console.log('Geolocation service: completed.'); }).catch(function (error) {
+                if (error.code > 0) {
+                    switch (error.code) {
+                        case error.PERMISSION_DENIED:
+                            _this.message = 'permission denied';
+                            break;
+                        case error.POSITION_UNAVAILABLE:
+                            _this.message = 'position unavailable';
+                            break;
+                        case error.TIMEOUT:
+                            _this.message = 'position timeout';
+                            break;
+                    }
+                    _this.warning = true;
+                }
+            });
+        }
+        else {
+            // Browser doesn't support geolocation.
+            this.message = "browser doesn't support geolocation";
+            this.warning = true;
+        }
+    };
     return TodoCmp;
 }());
 TodoCmp = __decorate([
@@ -59,6 +109,6 @@ TodoCmp = __decorate([
         templateUrl: "todo/templates/todo.html",
         styleUrls: ["todo/styles/todo.css"]
     }),
-    __metadata("design:paramtypes", [todo_service_1.TodoService])
+    __metadata("design:paramtypes", [todo_service_1.TodoService, geolocation_service_1.GeolocationService])
 ], TodoCmp);
 exports.TodoCmp = TodoCmp;

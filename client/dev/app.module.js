@@ -13,6 +13,7 @@ var platform_browser_1 = require("@angular/platform-browser");
 var app_1 = require("./app");
 var todo_cmp_1 = require("./todo/components/todo-cmp");
 var todo_route_1 = require("./todo/components/todo-route");
+var geolocation_service_1 = require("./todo/services/geolocation-service");
 var todo_service_1 = require("./todo/services/todo-service");
 var AppModule = (function () {
     function AppModule() {
@@ -33,6 +34,7 @@ AppModule = __decorate([
         ],
         providers: [
             todo_service_1.TodoService,
+            geolocation_service_1.GeolocationService,
         ],
         bootstrap: [
             app_1.App,
