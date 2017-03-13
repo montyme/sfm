@@ -31,11 +31,12 @@ type Todo = {
 export class TodoCmp implements OnInit {
   title: string = "UNAUTHORIZED SFMOMA SHOW";
   warning: boolean;
+  located: boolean;
   message: string;
   todos: Todo[] = [];
   todoForm: Todo;
 
-  center: any;
+  center: string = "Undisclosed Location";
         
   // The initial map zoom level. Required.
   zoom: string;
@@ -83,6 +84,7 @@ export class TodoCmp implements OnInit {
   // Tries to get the current position.
   getCurrentPosition() {
 
+      this.located = false;
       this.warning = false;
       this.message = "";
 
@@ -99,10 +101,11 @@ export class TodoCmp implements OnInit {
                       
                       // Sets the new center map & zoom.
                       // New center object: triggers OnChanges.
-                      this.center = position.coords.latitude + ',' + position.coords.longitude;
+                      this.center = position.coords.latitude + ':' + position.coords.longitude;
                       this.zoom = "11";
                       this.message = "location detected";
                       this.warning = true;
+                      this.located = true;
 
                       // Translates the location into address.
                       // this.geocoding.geocode(this.center).forEach(
@@ -140,18 +143,14 @@ export class TodoCmp implements OnInit {
                       }
 
                       this.warning = true;
-
                   }
 
               });
 
       } else {
-
           // Browser doesn't support geolocation.
           this.message = "browser doesn't support geolocation";
           this.warning = true;
-
       }
-
   }
 }

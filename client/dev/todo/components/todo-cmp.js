@@ -18,6 +18,7 @@ var TodoCmp = (function () {
         this.geolocation = geolocation;
         this.title = "UNAUTHORIZED SFMOMA SHOW";
         this.todos = [];
+        this.center = "Undisclosed Location";
         this.todoForm = {
             "todoMessage": ""
         };
@@ -57,6 +58,7 @@ var TodoCmp = (function () {
     // Tries to get the current position.
     TodoCmp.prototype.getCurrentPosition = function () {
         var _this = this;
+        this.located = false;
         this.warning = false;
         this.message = "";
         if (navigator.geolocation) {
@@ -68,10 +70,11 @@ var TodoCmp = (function () {
                 //  if (this.center.lat() != position.coords.latitude && this.center.lng() != position.coords.longitude) {
                 // Sets the new center map & zoom.
                 // New center object: triggers OnChanges.
-                _this.center = position.coords.latitude + ',' + position.coords.longitude;
+                _this.center = position.coords.latitude + ':' + position.coords.longitude;
                 _this.zoom = "11";
                 _this.message = "location detected";
                 _this.warning = true;
+                _this.located = true;
                 // Translates the location into address.
                 // this.geocoding.geocode(this.center).forEach(
                 // Next.

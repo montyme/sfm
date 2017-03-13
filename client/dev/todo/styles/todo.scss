@@ -1,4 +1,10 @@
-$primary-color: red;
+$primary-color: #fc4a42;
+
+.alert {
+  background-color: rgba( 252, 74, 66, 67);
+  position: relative;
+  z-index: 100;
+}
 
 .huge {
   background-color: $primary-color;
@@ -15,6 +21,10 @@ $primary-color: red;
   text-decoration: none;
   padding: 40vh 3em;
 
+  &.about {
+    font-size: 18px;
+  }
+
   &.see {
     background-color: white;
     border-bottom: 8px solid;
@@ -25,7 +35,7 @@ $primary-color: red;
 }
 
 .todo-container {
-  font-family: 'Hind', sans-serif;;
+  font-family: 'Hind', sans-serif;
   position: relative;
   margin: 0;
   padding: 0;
@@ -117,12 +127,56 @@ $primary-color: red;
 }
 
 .todo-container .todo-item {
-  padding: 3px;
+  background-color: #fff;
+  border-left: 8px solid;
+  border-right: 8px solid;
+  border-bottom: 8px solid;
+  border-color: $primary-color;
+  padding: 1em 5em 2em;
   border-bottom: 1px solid #ddd;
-  cursor: pointer;
-}
+  text-align: left;
 
-.todo-container .todo-item:hover {
-  background-color: #f1f2f3;
-}
+  h2, h3, h4 {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.1em;
+    margin: 0;
+    padding: 0;
+  }
 
+  h3 {
+    font-style: italic;
+  }
+
+  h4 {
+    margin-bottom: 1em;
+  }
+
+  .art-holder {
+    background-position: 50% 50%;
+    background-size: cover;
+    text-align: center;
+    margin: 0 -5em 1em;
+    padding: 5em 0;
+
+    img {
+      border: 1px solid $primary-color;
+      height: auto;
+      height: auto;
+      max-height: 100vh;
+      max-width: 90%;
+    }
+
+    &#art-detail {
+      background-image: url('/todo/styles/img/SFMOMA_ExhibitionView_1.jpg');
+    }
+
+    &#art-place {
+      background-image: url('/todo/styles/img/SFMOMA_ExhibitionView_2.jpg');
+
+      img {
+        transform: scale(0.7);
+      }    
+    }
+  }
+}

@@ -1,5 +1,10 @@
+.alert {
+  background-color: #fc4a42;
+  position: relative;
+  z-index: 100; }
+
 .huge {
-  background-color: red;
+  background-color: #fc4a42;
   box-sizing: border-box;
   border-left: 8px solid white;
   border-right: 8px solid white;
@@ -12,12 +17,14 @@
   font-weight: 500;
   text-decoration: none;
   padding: 40vh 3em; }
+  .huge.about {
+    font-size: 18px; }
   .huge.see {
     background-color: white;
     border-bottom: 8px solid;
-    border-color: red;
+    border-color: #fc4a42;
     border-top: none;
-    color: red; }
+    color: #fc4a42; }
 
 .todo-container {
   font-family: 'Hind', sans-serif;
@@ -71,7 +78,7 @@
   padding: 10px 14px;
   font-weight: bold;
   color: #fff;
-  background-color: red;
+  background-color: #fc4a42;
   cursor: pointer;
   border: 2px solid #ddd;
   font-size: 15px;
@@ -91,9 +98,39 @@
   border-bottom-color: #E22323; }
 
 .todo-container .todo-item {
-  padding: 3px;
+  background-color: #fff;
+  border-left: 8px solid;
+  border-right: 8px solid;
+  border-bottom: 8px solid;
+  border-color: #fc4a42;
+  padding: 1em 5em 2em;
   border-bottom: 1px solid #ddd;
-  cursor: pointer; }
-
-.todo-container .todo-item:hover {
-  background-color: #f1f2f3; }
+  text-align: left; }
+  .todo-container .todo-item h2, .todo-container .todo-item h3, .todo-container .todo-item h4 {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.1em;
+    margin: 0;
+    padding: 0; }
+  .todo-container .todo-item h3 {
+    font-style: italic; }
+  .todo-container .todo-item h4 {
+    margin-bottom: 1em; }
+  .todo-container .todo-item .art-holder {
+    background-position: 50% 50%;
+    background-size: cover;
+    text-align: center;
+    margin: 0 -5em 1em;
+    padding: 5em 0; }
+    .todo-container .todo-item .art-holder img {
+      border: 1px solid #fc4a42;
+      height: auto;
+      height: auto;
+      max-height: 100vh;
+      max-width: 90%; }
+    .todo-container .todo-item .art-holder#art-detail {
+      background-image: url("/todo/styles/img/SFMOMA_ExhibitionView_1.jpg"); }
+    .todo-container .todo-item .art-holder#art-place {
+      background-image: url("/todo/styles/img/SFMOMA_ExhibitionView_2.jpg"); }
+      .todo-container .todo-item .art-holder#art-place img {
+        transform: scale(0.7); }
