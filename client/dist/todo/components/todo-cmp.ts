@@ -32,6 +32,8 @@ export class TodoCmp implements OnInit {
   title: string = "UNAUTHORIZED SFMOMA SHOW";
   warning: boolean;
   located: boolean;
+  submiting: boolean = false;
+  viewing: boolean = false;
   message: string;
   todos: Todo[] = [];
   todoForm: Todo;
@@ -59,6 +61,21 @@ export class TodoCmp implements OnInit {
         .subscribe((todos) => {
           this.todos = todos;
         });
+  }
+
+  submit(): void{
+    this.submiting = true;
+    this.viewing = false;
+  }
+
+  view(): void{
+    this.submiting = false;
+    this.viewing = true;
+  }
+
+  reset(): void {
+    this.submiting = false;
+    this.viewing = false;
   }
 
   add(message: string): void {

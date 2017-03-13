@@ -72,6 +72,7 @@ $primary-color: #fc4a42;
 
   label {
     display: block;
+    padding-bottom: 1em;
   }
 
   ol {
@@ -82,6 +83,15 @@ $primary-color: #fc4a42;
     li {
 
     }
+  }
+
+  .number-input {
+    border: 1px solid $primary-color;
+    width: 4.8em;
+  }
+
+  .text-input {
+    border: 1px solid $primary-color;
   }
 }
 

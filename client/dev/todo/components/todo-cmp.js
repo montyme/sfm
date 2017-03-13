@@ -17,6 +17,8 @@ var TodoCmp = (function () {
         this._todoService = _todoService;
         this.geolocation = geolocation;
         this.title = "UNAUTHORIZED SFMOMA SHOW";
+        this.submiting = false;
+        this.viewing = false;
         this.todos = [];
         this.center = "Undisclosed Location";
         this.todoForm = {
@@ -34,6 +36,18 @@ var TodoCmp = (function () {
             .subscribe(function (todos) {
             _this.todos = todos;
         });
+    };
+    TodoCmp.prototype.submit = function () {
+        this.submiting = true;
+        this.viewing = false;
+    };
+    TodoCmp.prototype.view = function () {
+        this.submiting = false;
+        this.viewing = true;
+    };
+    TodoCmp.prototype.reset = function () {
+        this.submiting = false;
+        this.viewing = false;
     };
     TodoCmp.prototype.add = function (message) {
         var _this = this;

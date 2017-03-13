@@ -3,49 +3,46 @@
       <strong>status:</strong> {{ message }}
   </div>
 
-  <h1 class="todo-title">{{title}}</h1>
+  <h1 class="todo-title" (click)="reset()">{{title}}</h1>
 
-  <div class="huge about">
+  <div class="huge about" *ngIf="!viewing && !submiting">
     <p>You have to actually be in SFMOMA to see or participate in this exhibition, it looks like you are currently at: {{center}}</p>
   </div>
 
-  <a class="huge exhibit" href="#" *ngIf="located">DO YOU WANT TO EXHIBIT HERE?</a>
-
-  <a class="huge see" href="#" *ngIf="located">DO YOU WANT TO SEE THE EXHIBITION?</a>
 
 
   <form class="todo-form"
-        *ngIf="located" 
+        *ngIf="submiting" 
         (submit)="add(todoForm.todoMessage)">
     <p>Please fill in the form and upload your work here. Every work uploaded will be accepeted and exhibited inmmediately.</p>
 
     
     <label for="artist">
-      *Name of the artist:
-          <input id="artist" type="text"
+      *Name of the artist:<br>
+          <input id="artist" class="text-input" type="text"
            name="todoMessage"
            [(ngModel)]="todoForm.todoMessage"
                       />
     </label>
     <label for="artwork">
-      *Title of the artwork:
-          <input id="artwork" type="text"
+      *Title of the artwork:<br>
+          <input id="artwork" class="text-input" type="text"
            name="todoArtwork"
            [(ngModel)]="todoForm.todoArtwork"
                       />
     </label>
 
     <label for="artist">
-      *Name of the artist:
-          <input id="artist" type="text"
+      *Name of the artist:<br>
+          <input id="artist" class="text-input" type="text"
            name="todoArtist"
            [(ngModel)]="todoForm.todoArtist"
                       />
     </label>
 
     <label for="date">
-      *Date:
-          <input id="date" type="number"
+      *Date:<br>
+          <input id="date" class="number-input" type="number"
            name="todoDate"
            placeholder="YYYY" 
            [(ngModel)]="todoForm.todoDate"
@@ -53,28 +50,30 @@
     </label>
 
     <label for="medium">
-      Medium:
-          <input id="medium" type="text"
+      Medium:<br>
+          <input id="medium" class="text-input" type="text"
            name="todoMedium"
            [(ngModel)]="todoForm.todoMedium"
             />
     </label>
 
     <label for="size">
-      Size:
-          <input id="size" type="text"
+      Size:<br>
+          <input id="size" class="text-input" type="text"
            name="todoSize"
            [(ngModel)]="todoForm.todoSize"
             />
     </label>
 
     <label for="email">
-      E-mail:
-          <input id="email" type="email"
+      E-mail:<br>
+          <input id="email" class="text-input" type="email"
            name="todoEmail"
            [(ngModel)]="todoForm.todoEmail"
                       />
     </label>
+
+    <button type="submit" [disabled]="!todoForm.todoMessage.length">UPLOAD</button>
 
     <div id="tyc">
       <h3>EXHIBITION TERMS AND CONDITIONS</h3>
@@ -110,11 +109,9 @@
       </ol>
     </div>
 
-    <button type="submit"
-            [disabled]="!todoForm.todoMessage.length">UPLOAD</button>
   </form>
 
-  <div class="todo-list" *ngIf="located">
+  <div class="todo-list" *ngIf="viewing">
     <div class="todo-item">
          <h1>UNAUTHORIZED SFMOMA SHOW # 1:</h1>
          <div class="art">
@@ -134,4 +131,8 @@
          </div>
     </div>
   </div>
+
+  <a (click)="submit()" class="huge exhibit" href="#" *ngIf="located && !submiting">DO YOU WANT TO EXHIBIT HERE?</a>
+
+  <a (click)="view()" class="huge see" href="#" *ngIf="located && !viewing">DO YOU WANT TO SEE THE EXHIBITION?</a>
 </div>

@@ -56,11 +56,17 @@
   padding: 2em 6em;
   text-align: left; }
   .todo-container .todo-form label {
-    display: block; }
+    display: block;
+    padding-bottom: 1em; }
   .todo-container .todo-form ol {
     padding: 0;
     margin: 0;
     list-style-position: inside; }
+  .todo-container .todo-form .number-input {
+    border: 1px solid #fc4a42;
+    width: 4.8em; }
+  .todo-container .todo-form .text-input {
+    border: 1px solid #fc4a42; }
 
 .todo-container input {
   border: none;
