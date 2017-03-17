@@ -37,6 +37,7 @@ export class TodoCmp implements OnInit {
   message: string;
   todos: Todo[] = [];
   todoForm: Todo;
+  distance: any;
 
   center: string = "Undisclosed Location";
         
@@ -123,6 +124,7 @@ export class TodoCmp implements OnInit {
                       this.message = "location detected";
                       this.warning = true;
                       this.located = true;
+                      this.distance = this.getDistance(position.coords.latitude, position.coords.longitude, '37.785665', '-122.400502');
 
                       // Translates the location into address.
                       // this.geocoding.geocode(this.center).forEach(
@@ -169,5 +171,15 @@ export class TodoCmp implements OnInit {
           this.message = "browser doesn't support geolocation";
           this.warning = true;
       }
+  }
+
+  getDistance(lat1, lon1, lat2, lon2) {
+    let p = 0.017453292519943295;    // Math.PI / 180
+    let c = Math.cos;
+    let a = 0.5 - c((lat2 - lat1) * p)/2 + 
+            c(lat1 * p) * c(lat2 * p) * 
+            (1 - c((lon2 - lon1) * p))/2;
+
+    return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
   }
 }
