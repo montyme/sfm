@@ -38,6 +38,7 @@ export class TodoCmp implements OnInit {
   todos: Todo[] = [];
   todoForm: Todo;
   distance: any;
+  isClassVisible: boolean =false;
 
   center: string = "Undisclosed Location";
         
@@ -49,6 +50,7 @@ export class TodoCmp implements OnInit {
     this.todoForm = {
       "todoMessage": ""
     };
+
   }
 
   ngOnInit() {
@@ -67,16 +69,19 @@ export class TodoCmp implements OnInit {
   submit(): void{
     this.submiting = true;
     this.viewing = false;
+    this.isClassVisible = true;
   }
 
   view(): void{
     this.submiting = false;
     this.viewing = true;
+    this.isClassVisible = true;
   }
 
   reset(): void {
     this.submiting = false;
     this.viewing = false;
+    this.isClassVisible = false;
   }
 
   add(message: string): void {
@@ -121,23 +126,16 @@ export class TodoCmp implements OnInit {
                       // New center object: triggers OnChanges.
                       this.center = position.coords.latitude + ':' + position.coords.longitude;
                       this.zoom = "11";
-                      this.message = "location detected";
-                      this.warning = true;
+                      this.message = "";
+                      this.warning = false;
                       this.located = true;
-                      this.distance = this.getDistance(position.coords.latitude, position.coords.longitude, '37.785665', '-122.400502');
 
-                      // Translates the location into address.
-                      // this.geocoding.geocode(this.center).forEach(
-                      
-                          // Next.
-                      //     (results: google.maps.GeocoderResult[]) => {
-
-                              // Sets the marker to the center map.
-                      //         this.setMarker(this.center, "your locality", results[0].formatted_address);
-
-                      //     }, null
-
-                      // ).then(() => console.log('Geocoding service: completed.'));
+                      this.distance = this.getDistance(
+                                        position.coords.latitude, 
+                                        position.coords.longitude, 
+                                        '37.785665', 
+                                        '-122.400502'
+                                      );
 
                  //  }
 

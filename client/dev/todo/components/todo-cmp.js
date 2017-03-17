@@ -20,6 +20,7 @@ var TodoCmp = (function () {
         this.submiting = false;
         this.viewing = false;
         this.todos = [];
+        this.isClassVisible = false;
         this.center = "Undisclosed Location";
         this.todoForm = {
             "todoMessage": ""
@@ -40,14 +41,17 @@ var TodoCmp = (function () {
     TodoCmp.prototype.submit = function () {
         this.submiting = true;
         this.viewing = false;
+        this.isClassVisible = true;
     };
     TodoCmp.prototype.view = function () {
         this.submiting = false;
         this.viewing = true;
+        this.isClassVisible = true;
     };
     TodoCmp.prototype.reset = function () {
         this.submiting = false;
         this.viewing = false;
+        this.isClassVisible = false;
     };
     TodoCmp.prototype.add = function (message) {
         var _this = this;
@@ -86,18 +90,10 @@ var TodoCmp = (function () {
                 // New center object: triggers OnChanges.
                 _this.center = position.coords.latitude + ':' + position.coords.longitude;
                 _this.zoom = "11";
-                _this.message = "location detected";
-                _this.warning = true;
+                _this.message = "";
+                _this.warning = false;
                 _this.located = true;
                 _this.distance = _this.getDistance(position.coords.latitude, position.coords.longitude, '37.785665', '-122.400502');
-                // Translates the location into address.
-                // this.geocoding.geocode(this.center).forEach(
-                // Next.
-                //     (results: google.maps.GeocoderResult[]) => {
-                // Sets the marker to the center map.
-                //         this.setMarker(this.center, "your locality", results[0].formatted_address);
-                //     }, null
-                // ).then(() => console.log('Geocoding service: completed.'));
                 //  }
             }, null).then(function () { return console.log('Geolocation service: completed.'); }).catch(function (error) {
                 if (error.code > 0) {

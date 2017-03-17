@@ -3,10 +3,10 @@
       <strong>status:</strong> {{ message }}
   </div>
 
-  <h1 class="todo-title" (click)="reset()">{{title}}</h1>
+  <h1 [class.shadow]="isClassVisible" class="todo-title" (click)="reset()">{{title}}</h1>
 
   <div class="huge about" *ngIf="!viewing && !submiting">
-    <p>You have to actually be in SFMOMA to see or participate in this exhibition, it looks like you are currently at: {{center}}, that is {{distance}} kilometers away from SFMOMA.</p>
+    <p>You have to actually be in SFMOMA to see or participate in this exhibition, it looks like you are currently at: {{center}}<span *ngIf="distance">, that is {{distance}} kilometers away from SFMOMA</span>.</p>
   </div>
 
 
@@ -41,7 +41,7 @@
     </label>
 
     <label for="date">
-      *Date:<br>
+      *Date of the artwork:<br>
           <input id="date" class="number-input" type="number"
            name="todoDate"
            placeholder="YYYY" 
@@ -134,5 +134,5 @@
 
   <a (click)="submit()" class="huge exhibit" href="#" *ngIf="located && !submiting">DO YOU WANT TO EXHIBIT HERE?</a>
 
-  <a (click)="view()" class="huge see" href="#" *ngIf="located && !viewing">DO YOU WANT TO SEE THE EXHIBITION?</a>
+  <a (click)="view()" class="huge see" href="#" *ngIf="located && !viewing">DO YOU WANT TO GO TO THE EXHIBITION?</a>
 </div>
