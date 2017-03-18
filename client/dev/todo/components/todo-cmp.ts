@@ -32,6 +32,7 @@ export class TodoCmp implements OnInit {
   title: string = "UNAUTHORIZED SFMOMA SHOW";
   warning: boolean;
   located: boolean;
+  inmoma: boolean = false;
   submiting: boolean = false;
   viewing: boolean = false;
   message: string;
@@ -136,6 +137,10 @@ export class TodoCmp implements OnInit {
                                         '37.785665', 
                                         '-122.400502'
                                       );
+
+                      if( this.distance < 0.145 ){
+                        this.inmoma = true;
+                      }
 
                  //  }
 

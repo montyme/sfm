@@ -9,7 +9,7 @@
   <h1 [class.shadow]="isClassVisible" class="todo-title" (click)="reset()">{{title}}</h1>
 
   <div class="huge about" *ngIf="!viewing && !submiting">
-    <p>You have to actually be in SFMOMA to see or participate in this exhibition, it looks like you are currently at: {{center}}<span *ngIf="distance">, that is {{distance}} kilometers away from SFMOMA</span>.</p>
+    <p>You have to actually be in SFMOMA to see or participate in this exhibition, it looks like you are currently at: {{center}}<span *ngIf="distance">, that is {{distance}} kilometers away from SFMOMA</span><span *ngIf="!inmoma">, that is too far away, get closer</span>.</p>
   </div>
 
 
@@ -138,7 +138,7 @@
     </div>
   </div>
 
-  <a (click)="submit()" class="huge exhibit" href="#" *ngIf="located && !submiting">DO YOU WANT TO EXHIBIT HERE?</a>
+  <a (click)="submit()" class="huge exhibit" href="#" *ngIf="inmoma && !submiting">DO YOU WANT TO EXHIBIT HERE?</a>
 
-  <a (click)="view()" class="huge see" href="#" *ngIf="located && !viewing">DO YOU WANT TO GO TO THE EXHIBITION?</a>
+  <a (click)="view()" class="huge see" href="#" *ngIf="inmoma && !viewing">DO YOU WANT TO GO TO THE EXHIBITION?</a>
 </div>

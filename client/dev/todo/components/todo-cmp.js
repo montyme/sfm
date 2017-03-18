@@ -17,6 +17,7 @@ var TodoCmp = (function () {
         this._todoService = _todoService;
         this.geolocation = geolocation;
         this.title = "UNAUTHORIZED SFMOMA SHOW";
+        this.inmoma = false;
         this.submiting = false;
         this.viewing = false;
         this.todos = [];
@@ -94,6 +95,9 @@ var TodoCmp = (function () {
                 _this.warning = false;
                 _this.located = true;
                 _this.distance = _this.getDistance(position.coords.latitude, position.coords.longitude, '37.785665', '-122.400502');
+                if (_this.distance < 0.145) {
+                    _this.inmoma = true;
+                }
                 //  }
             }, null).then(function () { return console.log('Geolocation service: completed.'); }).catch(function (error) {
                 if (error.code > 0) {
