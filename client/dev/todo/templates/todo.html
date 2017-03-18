@@ -9,7 +9,7 @@
   <h1 [class.shadow]="isClassVisible" class="todo-title" (click)="reset()">{{title}}</h1>
 
   <div class="huge about" *ngIf="!viewing && !submiting && !inmoma">
-    <p>You have to actually be in SFMOMA to see or participate in this exhibition, it looks like you are currently at: {{center}}<span *ngIf="distance">, that is {{distance}} kilometers away from SFMOMA</span><span *ngIf="!inmoma">, that is too far away, get closer</span>.</p>
+    <p>You have to actually be in SFMOMA to see or participate in this exhibition, it looks like you are currently at: {{center}}<span *ngIf="distance">, that is {{distance}} kilometers away from SFMOMA</span><span *ngIf="located && !inmoma">, that is too far away, get closer</span>.</p>
   </div>
 
 
