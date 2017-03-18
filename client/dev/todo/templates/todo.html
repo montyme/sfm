@@ -1,4 +1,7 @@
-<div class="todo-container">
+<div [class.submiting]="submiting"
+     [class.viewing]="viewing" 
+     class="todo-container">
+
   <div class="alert alert-warning alert-dismissible" role="alert" *ngIf="warning">
       <strong>status:</strong> {{ message }}
   </div>
@@ -16,35 +19,36 @@
         (submit)="add(todoForm.todoMessage)">
     <p>Please fill in the form and upload your work here. Every work uploaded will be accepeted and exhibited inmmediately.</p>
 
+    <p><span class="red">* Mandatory fields</span></p>
     
     <label for="artist">
-      *Name of the artist:<br>
+      <span class="red">*</span>Name of the artist:<br>
           <input id="artist" class="text-input" type="text"
-           name="todoMessage"
+           name="todoMessage" required
            [(ngModel)]="todoForm.todoMessage"
                       />
     </label>
     <label for="artwork">
-      *Title of the artwork:<br>
+      <span class="red">*</span>Title of the artwork:<br>
           <input id="artwork" class="text-input" type="text"
-           name="todoArtwork"
+           name="todoArtwork" required
            [(ngModel)]="todoForm.todoArtwork"
                       />
     </label>
 
     <label for="artist">
-      *Name of the artist:<br>
+      <span class="red">*</span>Name of the artist:<br>
           <input id="artist" class="text-input" type="text"
-           name="todoArtist"
+           name="todoArtist" required
            [(ngModel)]="todoForm.todoArtist"
                       />
     </label>
 
     <label for="date">
-      *Date of the artwork:<br>
+      <span class="red">*</span>Date of the artwork:<br>
           <input id="date" class="number-input" type="number"
            name="todoDate"
-           placeholder="YYYY" 
+           placeholder="YYYY" required
            [(ngModel)]="todoForm.todoDate"
                       />
     </label>
@@ -72,6 +76,8 @@
            [(ngModel)]="todoForm.todoEmail"
                       />
     </label>
+
+    <p><span class="red">* Mandatory fields</span></p>
 
     <button type="submit" [disabled]="!todoForm.todoMessage.length">UPLOAD</button>
 

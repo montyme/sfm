@@ -45,11 +45,30 @@ $primary-color: #fc4a42;
   text-align: center;
 }
 
+.red {
+  color: $primary-color;
+}
+
 .shadow {
   box-shadow: 0 0 30px 10px rgba(0,0,0,0.3);
 }
 
+.viewing.todo-container ,
+.submiting.todo-container {
+  .huge{
+    font-size: 2em;
+    height: 80px;
+
+    &.see {
+      background-color: $primary-color;
+      border-color: #fff;
+      color: #fff;
+    }
+  }
+}
+
 .todo-container .todo-title {
+  cursor: pointer;
   margin: 0;
   padding: 1.25em 5px 0.85em;
   position: relative;
@@ -170,7 +189,8 @@ $primary-color: #fc4a42;
 
   .art-holder {
     background-position: 50% 50%;
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 90% auto;
     text-align: center;
     margin: 0 -5em 1em;
     padding: 5em 0;

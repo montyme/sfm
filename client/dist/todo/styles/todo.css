@@ -37,10 +37,24 @@
   padding: 0;
   text-align: center; }
 
+.red {
+  color: #fc4a42; }
+
 .shadow {
   box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.3); }
 
+.viewing.todo-container .huge,
+.submiting.todo-container .huge {
+  font-size: 2em;
+  height: 80px; }
+  .viewing.todo-container .huge.see,
+  .submiting.todo-container .huge.see {
+    background-color: #fc4a42;
+    border-color: #fff;
+    color: #fff; }
+
 .todo-container .todo-title {
+  cursor: pointer;
   margin: 0;
   padding: 1.25em 5px 0.85em;
   position: relative;
@@ -130,7 +144,8 @@
     margin-bottom: 1em; }
   .todo-container .todo-item .art-holder {
     background-position: 50% 50%;
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 90% auto;
     text-align: center;
     margin: 0 -5em 1em;
     padding: 5em 0; }
