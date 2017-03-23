@@ -28,7 +28,8 @@ $primary-color: #fc4a42;
   &.about {
     font-size: 18px;
     width: 100% !important;
-    height: calc(100vh - 60px);
+    min-height: calc(100vh - 60px);
+    height: auto;
 
     p {
       display: block;

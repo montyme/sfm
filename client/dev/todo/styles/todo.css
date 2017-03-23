@@ -24,7 +24,9 @@
   /* column | row */ }
   .huge.about {
     font-size: 18px;
-    width: 100% !important; }
+    width: 100% !important;
+    min-height: calc(100vh - 60px);
+    height: auto; }
     .huge.about p {
       display: block;
       margin: 0 auto 1em;
