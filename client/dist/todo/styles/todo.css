@@ -10,25 +10,36 @@
   border-right: 8px solid white;
   border-top: 8px solid white;
   color: white;
-  height: 100vh;
+  height: calc( 50vh - 30px);
   width: 100%;
-  font-size: 2em;
+  line-height: 1.1em;
+  font-size: 4.8em;
   font-weight: 500;
   text-decoration: none;
-  padding: 1em;
+  padding: 1em 0.5em;
   display: flex;
   justify-content: center;
   align-content: center;
   flex-direction: column;
   /* column | row */ }
   .huge.about {
-    font-size: 18px; }
+    font-size: 18px;
+    width: 100% !important; }
+    .huge.about p {
+      display: block;
+      margin: 0 auto 1em;
+      max-width: 570px; }
   .huge.see {
     background-color: white;
     border-bottom: 8px solid;
     border-color: #fc4a42;
     border-top: none;
     color: #fc4a42; }
+  .huge a {
+    color: white; }
+  .huge p {
+    margin: 0 0 1em;
+    padding: 0; }
 
 .todo-container {
   font-family: 'Hind', sans-serif;
@@ -46,7 +57,8 @@
 .viewing.todo-container .huge,
 .submiting.todo-container .huge {
   font-size: 2em;
-  height: 80px; }
+  height: 80px;
+  width: 100% !important; }
   .viewing.todo-container .huge.see,
   .submiting.todo-container .huge.see {
     background-color: #fc4a42;
@@ -132,6 +144,8 @@
   padding: 1em 5em 2em;
   border-bottom: 1px solid #ddd;
   text-align: left; }
+  .todo-container .todo-item h1 {
+    font-size: 28px; }
   .todo-container .todo-item h2, .todo-container .todo-item h3, .todo-container .todo-item h4 {
     font-size: 22px;
     font-weight: 500;
@@ -145,16 +159,16 @@
   .todo-container .todo-item .art-holder {
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-size: 90% auto;
+    background-size: contain;
     text-align: center;
-    margin: 0 -5em 1em;
-    padding: 5em 0; }
+    margin: 0  0 1em;
+    padding: 0em 0; }
     .todo-container .todo-item .art-holder img {
       border: 1px solid #fc4a42;
       height: auto;
       height: auto;
-      max-height: 100vh;
-      max-width: 90%; }
+      max-width: 80%;
+      margin: 1em 0; }
     .todo-container .todo-item .art-holder#art-detail {
       background-image: url("/todo/styles/img/SFMOMA_ExhibitionView_1.jpg"); }
     .todo-container .todo-item .art-holder#art-place {
@@ -162,17 +176,39 @@
       .todo-container .todo-item .art-holder#art-place img {
         transform: scale(0.7); }
 
+@media screen and (orientation: landscape) {
+  .huge {
+    border-bottom: 8px solid white;
+    float: left;
+    height: calc( 100vh - 60px);
+    width: 50%; }
+    .huge.see {
+      border-top: 8px solid #fc4a42; } }
+
 @media screen and (max-width: 1024px) {
   .huge {
-    font-size: 5em; } }
+    font-size: 4.2em; } }
 
 @media screen and (max-width: 720px) {
   .huge {
-    font-size: 4em; } }
+    font-size: 3.5em; }
+  .todo-container .todo-form,
+  .todo-container .todo-item {
+    padding: 2em 1em; }
+  .viewing.todo-container .huge,
+  .submiting.todo-container .huge {
+    font-size: 1.5em;
+    line-height: 1.1em; } }
 
 @media screen and (max-width: 640px) {
   .huge {
-    font-size: 2.5em; } }
+    font-size: 2.2em; }
+  .viewing.todo-container .huge,
+  .submiting.todo-container .huge {
+    font-size: 1.3em;
+    line-height: 1.1em; }
+  .todo-container .todo-item h1 {
+    font-size: 24px; } }
 
 @media screen and (min-width: 1025px) {
   .huge {

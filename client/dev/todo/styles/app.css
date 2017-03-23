@@ -2,7 +2,11 @@ body, html {
   background: #fc4a42;
   font-family: 'Hind', sans-serif;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  overflow: hidden; }
+
+html {
+  overflow-y: scroll; }
 
 .loader,
 .loader:before,

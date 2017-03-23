@@ -13,12 +13,13 @@ $primary-color: #fc4a42;
   border-right: 8px solid white;
   border-top: 8px solid white;
   color: white;
-  height: 100vh;
+  height: calc( 50vh - 30px );
   width: 100%;
-  font-size: 2em;
+  line-height: 1.1em;
+  font-size: 4.8em;
   font-weight: 500;
   text-decoration: none;
-  padding: 1em;
+  padding: 1em 0.5em;
   display: flex;
   justify-content:center;
   align-content:center;
@@ -26,6 +27,13 @@ $primary-color: #fc4a42;
 
   &.about {
     font-size: 18px;
+    width: 100% !important;
+
+    p {
+      display: block;
+      margin: 0 auto 1em;
+      max-width: 570px;
+    }
   }
 
   &.see {
@@ -34,6 +42,15 @@ $primary-color: #fc4a42;
     border-color: $primary-color;
     border-top: none;
     color: $primary-color;
+  }
+
+  a {
+    color: white;
+  }
+
+  p {
+    margin: 0 0 1em;
+    padding: 0;
   }
 }
 
@@ -58,6 +75,7 @@ $primary-color: #fc4a42;
   .huge{
     font-size: 2em;
     height: 80px;
+    width: 100% !important;
 
     &.see {
       background-color: $primary-color;
@@ -171,6 +189,10 @@ $primary-color: #fc4a42;
   border-bottom: 1px solid #ddd;
   text-align: left;
 
+  h1 {
+    font-size: 28px;
+  }
+
   h2, h3, h4 {
     font-size: 22px;
     font-weight: 500;
@@ -190,17 +212,17 @@ $primary-color: #fc4a42;
   .art-holder {
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-size: 90% auto;
+    background-size: contain;
     text-align: center;
-    margin: 0 -5em 1em;
-    padding: 5em 0;
+    margin: 0  0 1em;
+    padding: 0em 0;
 
     img {
       border: 1px solid $primary-color;
       height: auto;
       height: auto;
-      max-height: 100vh;
-      max-width: 90%;
+      max-width: 80%;
+      margin: 1em 0;
     }
 
     &#art-detail {
@@ -217,22 +239,67 @@ $primary-color: #fc4a42;
   }
 }
 
+@media screen and (orientation: landscape) {
+  .huge {
+    border-bottom: 8px solid white;
+    float: left;
+    height: calc( 100vh - 60px);
+    width: 50%;
+
+    &.see { 
+      border-top: 8px solid $primary-color;
+    }
+  }
+}
+
 @media screen and (max-width:1024px) {
   .huge {
-    font-size: 5em;
+    font-size: 4.2em;
   }
 }
 
 @media screen and (max-width:720px) {
   .huge {
-    font-size: 4em;
+    font-size: 3.5em;
+  }
+
+  .todo-container .todo-form ,
+  .todo-container .todo-item {
+    padding: 2em 1em;
+  }
+
+  .viewing.todo-container ,
+  .submiting.todo-container {
+    .huge{
+      font-size: 1.5em;
+      line-height: 1.1em;
+    }
   }
 }
 
 @media screen and (max-width:640px) {
   .huge {
-    font-size: 2.5em;
+    font-size: 2.2em;
   }
+  .viewing.todo-container ,
+  .submiting.todo-container {
+    .huge{
+      font-size: 1.3em;
+      line-height: 1.1em;
+    }
+  }
+
+  .todo-container {
+    .todo-item {
+      h1 {
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:360px) {
+
 }
 
 @media screen and (min-width:1025px) {

@@ -2,14 +2,21 @@
      [class.viewing]="viewing" 
      class="todo-container">
 
-  <div class="alert alert-warning alert-dismissible" role="alert" *ngIf="warning">
-      <strong>status:</strong> {{ message }}
-  </div>
-
   <h1 [class.shadow]="isClassVisible" class="todo-title" (click)="reset()">{{title}}</h1>
 
-  <div class="huge about" *ngIf="!viewing && !submiting && !inmoma">
-    <p>You have to actually be in SFMOMA to see or participate in this exhibition, it looks like you are currently at: {{center}}<span *ngIf="distance">, that is {{distance}} kilometers away from SFMOMA</span><span *ngIf="located && !inmoma">, that is too far away, get closer</span>.</p>
+
+  <div class="huge about" *ngIf="warning">
+    <p>Please enable location services in your computer or device to visit or participate in this exhibition.</p>
+  </div>
+
+  <div class="huge about" *ngIf="!viewing && !submiting && !inmoma && !warning">
+    <p>You have to physically be in SFMOMA to visit or participate in this exhibition. Unfortunately it looks like you are currently at: {{center}}, which is {{distance}} km away</p>
+
+    <p>Unauthorized SFMOMA Show is a series of individual solo exhibitions that will take place from the 6th of april until the 2nd of July within the physical public spaces of SFMOMA.</p>
+
+    <p>Through these unauthorized SFMOMA exhibitions, which are free to visit and participate, we invite you to act as an institutional agent by means of cultural creation, selection and propagation. The only requirement to be part of unauthorized SFMOMA exhibitions is to be in the public spaces of SFMOMA and have access to a device that can connect to sfmoma.show</p>
+
+    <p>If you have any questions, please don’t hesitate to contact us at <a href="mailto:unauthorized@sfmoma.show">unauthorized@sfmoma.show</a></p>
   </div>
 
 

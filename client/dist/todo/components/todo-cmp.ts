@@ -125,7 +125,7 @@ export class TodoCmp implements OnInit {
                       
                       // Sets the new center map & zoom.
                       // New center object: triggers OnChanges.
-                      this.center = position.coords.latitude + ':' + position.coords.longitude;
+                      this.center = position.coords.latitude + ', ' + position.coords.longitude;
                       this.zoom = "11";
                       this.message = "";
                       this.warning = false;

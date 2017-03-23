@@ -89,7 +89,7 @@ var TodoCmp = (function () {
                 //  if (this.center.lat() != position.coords.latitude && this.center.lng() != position.coords.longitude) {
                 // Sets the new center map & zoom.
                 // New center object: triggers OnChanges.
-                _this.center = position.coords.latitude + ':' + position.coords.longitude;
+                _this.center = position.coords.latitude + ', ' + position.coords.longitude;
                 _this.zoom = "11";
                 _this.message = "";
                 _this.warning = false;
