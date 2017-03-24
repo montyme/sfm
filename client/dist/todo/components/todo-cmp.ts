@@ -138,7 +138,7 @@ export class TodoCmp implements OnInit {
                                         '-122.400502'
                                       );
 
-                      if( this.distance < 0.145 ){
+                      if( this.distance < 145000 ){
                         this.inmoma = true;
                       }
 
