@@ -87,7 +87,7 @@ var TodoCmp = (function () {
         var bucket = new AWSService.S3({ params: { Bucket: 'sfmomashow' } });
         var d = new Date();
         var n = d.getTime();
-        var params = { Key: file.name + n, Body: file };
+        var params = { Key: n + file.name, Body: file };
         var that = this;
         bucket.upload(params, function (error, res) {
             if (error) {

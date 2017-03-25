@@ -123,7 +123,7 @@ export class TodoCmp implements OnInit {
     let bucket = new AWSService.S3({params: {Bucket: 'sfmomashow'}});
     let d = new Date();
     let n = d.getTime();
-    let params = {Key:file.name+n, Body: file};
+    let params = {Key:n+file.name, Body: file};
     let that = this;
     bucket.upload( params, function( error, res ){
       if( error ){
