@@ -126,11 +126,11 @@
 
   <div class="todo-list" *ngIf="viewing">
     <div class="todo-item">
-         <h1>UNAUTHORIZED SFMOMA SHOW # 1:</h1>
+         <h1>UNAUTHORIZED SFMOMA SHOW:</h1>
          <div class="art">
-          <h2>{{item.todoMessage}}</h2>
-          <h3>{{item.todoArtwork}}</h3>
-          <h4 *ngIf="item.todoMedium">{{item.todoMedium}}</h4>
+          <h2>{{item?.todoMessage}}</h2>
+          <h3>{{item?.todoArtwork}}</h3>
+          <h4 *ngIf="item?.todoMedium">{{item?.todoMedium}}</h4>
 
           <div class="art-holder" id="art-detail">
             <img src="//placehold.it/800x600">
