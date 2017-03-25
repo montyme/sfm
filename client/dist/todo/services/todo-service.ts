@@ -1,7 +1,6 @@
 import {
   Inject,
-  Injectable,
-  NgZone
+  Injectable
 } from "@angular/core";
 
 import {
@@ -19,14 +18,14 @@ import "rxjs/add/operator/map";
 export class TodoService {
   static ENDPOINT: string = "/api/todos/:id";
 
-  constructor(@Inject(Http) private _http: Http, private zone:NgZone) {
+  constructor(@Inject(Http) private _http: Http) {
 
   }
 
   getAll(): Observable<any> {
     return this._http
                .get(TodoService.ENDPOINT.replace(/:id/, ""))
-               .map((r) => r.json()).publishLast().refCount();
+               .map((r) => r.json());
   }
 
   getById(id: string):Observable<any> {
@@ -44,7 +43,7 @@ export class TodoService {
 
     return this._http
                .post(TodoService.ENDPOINT.replace(/:id/, ""), message, {headers})
-               .map((r) => r.json()).publishLast().refCount();
+               .map((r) => r.json());
   }
 
   remove(id: string): Observable<any> {

@@ -16,14 +16,13 @@ var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
 var TodoService = TodoService_1 = (function () {
-    function TodoService(_http, zone) {
+    function TodoService(_http) {
         this._http = _http;
-        this.zone = zone;
     }
     TodoService.prototype.getAll = function () {
         return this._http
             .get(TodoService_1.ENDPOINT.replace(/:id/, ""))
-            .map(function (r) { return r.json(); }).publishLast().refCount();
+            .map(function (r) { return r.json(); });
     };
     TodoService.prototype.getById = function (id) {
         return this._http
@@ -36,7 +35,7 @@ var TodoService = TodoService_1 = (function () {
         headers.append("Content-Type", "application/json");
         return this._http
             .post(TodoService_1.ENDPOINT.replace(/:id/, ""), message, { headers: headers })
-            .map(function (r) { return r.json(); }).publishLast().refCount();
+            .map(function (r) { return r.json(); });
     };
     TodoService.prototype.remove = function (id) {
         return this._http
@@ -48,7 +47,7 @@ TodoService.ENDPOINT = "/api/todos/:id";
 TodoService = TodoService_1 = __decorate([
     core_1.Injectable(),
     __param(0, core_1.Inject(http_1.Http)),
-    __metadata("design:paramtypes", [http_1.Http, core_1.NgZone])
+    __metadata("design:paramtypes", [http_1.Http])
 ], TodoService);
 exports.TodoService = TodoService;
 var TodoService_1;
