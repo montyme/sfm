@@ -128,6 +128,7 @@ export class TodoCmp implements OnInit {
         that._todoService
           .add(todoForm)
           .subscribe((m) => {
+            console.log( "added: ", m);
             that.item = m;
             that.view();
         });

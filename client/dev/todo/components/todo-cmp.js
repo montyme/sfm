@@ -93,6 +93,7 @@ var TodoCmp = (function () {
                 that._todoService
                     .add(todoForm)
                     .subscribe(function (m) {
+                    console.log("added: ", m);
                     that.item = m;
                     that.view();
                 });
