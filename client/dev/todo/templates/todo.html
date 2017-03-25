@@ -25,7 +25,7 @@
         *ngIf="submiting" 
         (submit)="add(todoForm)">
 
-    <p>Please fill in the form and upload your work here. Every work uploaded will be accepeted and exhibited inmmediately.</p>
+    <p>Please fill in the form and upload your work here. Every work uploaded will be accepeted and exhibited inmmediately. If you have any questions please don't hesitate to contact us: <a href="mailto:unauthorized@sfmoma.show">unauthorized@sfmoma.show</a></p>
 
     <p><span class="red">* Mandatory fields</span></p>
     
@@ -43,20 +43,6 @@
            [(ngModel)]="todoForm.todoArtwork"
                       />
     </label>
-    <label for="file">
-      <span class="red">*</span>Title of the file:<br>
-          <input id="file" class="text-input" type="file"
-           (change)="fileEvent($event)" required
-                      />
-    </label>
-    <label for="artist">
-      <span class="red">*</span>Name of the artist:<br>
-          <input id="artist" class="text-input" type="text"
-           name="todoArtist" required
-           [(ngModel)]="todoForm.todoArtist"
-                      />
-    </label>
-
     <label for="date">
       <span class="red">*</span>Date of the artwork:<br>
           <input id="date" class="number-input" type="number"
@@ -65,7 +51,6 @@
            [(ngModel)]="todoForm.todoDate"
                       />
     </label>
-
     <label for="medium">
       Medium:<br>
           <input id="medium" class="text-input" type="text"
@@ -73,7 +58,6 @@
            [(ngModel)]="todoForm.todoMedium"
             />
     </label>
-
     <label for="size">
       Size:<br>
           <input id="size" class="text-input" type="text"
@@ -81,12 +65,24 @@
            [(ngModel)]="todoForm.todoSize"
             />
     </label>
-
+    <label for="artist">
+      <span class="red">*</span>Name of the applicant (if different than name of the artist):<br>
+          <input id="artist" class="text-input" type="text"
+           name="todoArtist" required
+           [(ngModel)]="todoForm.todoArtist"
+                      />
+    </label>
     <label for="email">
       E-mail:<br>
           <input id="email" class="text-input" type="email"
            name="todoEmail"
            [(ngModel)]="todoForm.todoEmail"
+                      />
+    </label>
+    <label for="file">
+      <span class="red">*</span>File:<br>
+          <input id="file" class="text-input" type="file"
+           (change)="fileEvent($event)" required
                       />
     </label>
 
@@ -121,7 +117,7 @@
 
         <h4>CONSERVATION</h4>
 
-        <li>It is understood that unauthorized SFMOMA exhibition (or any participating institution/museum) will not</li>
+        <li>It is understood that unauthorized SFMOMA exhibition (or any participating institution/museum) will not clean, restore, or otherwise alter the work without the consent of the submitter.</li>
 
       </ol>
     </div>
@@ -132,9 +128,9 @@
     <div class="todo-item">
          <h1>UNAUTHORIZED SFMOMA SHOW # 1:</h1>
          <div class="art">
-          <h2>Artist Name</h2>
-          <h3>Design del website, 2017</h3>
-          <h4>Art Medium</h4>
+          <h2>{{item.todoMessage}}</h2>
+          <h3>{{item.todoArtwork}}</h3>
+          <h4 *ngIf="item.todoMedium">{{item.todoMedium}}</h4>
 
           <div class="art-holder" id="art-detail">
             <img src="//placehold.it/800x600">
@@ -145,11 +141,13 @@
           </div>
 
           <p>On view from April 6th, 2017</p>
+          
+          <p>If you have any questions please don't hesitate to contact us: <a href="mailto:unauthorized@sfmoma.show">unauthorized@sfmoma.show</a></p>
          </div>
     </div>
   </div>
 
   <a (click)="submit()" class="huge exhibit" href="#" *ngIf="inmoma && !submiting">DO YOU WANT TO EXHIBIT HERE?</a>
 
-  <a (click)="view()" class="huge see" href="#" *ngIf="inmoma && !viewing">DO YOU WANT TO GO TO THE EXHIBITION?</a>
+  <a (click)="view()" class="huge see" href="#" *ngIf="inmoma && !viewing">DO YOU WANT TO SEE THE EXHIBITION?</a>
 </div>

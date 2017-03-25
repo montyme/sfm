@@ -38,6 +38,7 @@ export class TodoCmp implements OnInit {
   warning: boolean;
   located: boolean;
   inmoma: boolean = false;
+  item: any;
   submiting: boolean = false;
   viewing: boolean = false;
   message: string;
@@ -68,7 +69,7 @@ export class TodoCmp implements OnInit {
     this._todoService
         .getAll()
         .subscribe((todos) => {
-          this.todos = todos;
+          this.item = todos;
         });
   }
 

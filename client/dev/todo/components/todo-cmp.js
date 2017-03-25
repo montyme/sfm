@@ -38,7 +38,7 @@ var TodoCmp = (function () {
         this._todoService
             .getAll()
             .subscribe(function (todos) {
-            _this.todos = todos;
+            _this.item = todos;
         });
     };
     TodoCmp.prototype.fileEvent = function (fileInput) {
