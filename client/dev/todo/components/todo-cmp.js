@@ -50,6 +50,7 @@ var TodoCmp = (function () {
         this._todoService
             .getAll()
             .subscribe(function (todos) {
+            console.log('Todos: ', todos);
             that.zone.run(function () {
                 console.log('Got item: ', todos);
                 that.item = todos;
@@ -96,6 +97,7 @@ var TodoCmp = (function () {
                 that._todoService
                     .add(todoForm)
                     .subscribe(function (m) {
+                    console.log("m: ", m);
                     that.zone.run(function () {
                         console.log("added: ", m);
                         that.item = m;

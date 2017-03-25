@@ -81,6 +81,7 @@ export class TodoCmp implements OnInit {
     this._todoService
         .getAll()
         .subscribe((todos) => {
+          console.log('Todos: ', todos);
           that.zone.run(() => {
             console.log( 'Got item: ', todos);
             that.item = todos;
@@ -131,6 +132,7 @@ export class TodoCmp implements OnInit {
         that._todoService
           .add(todoForm)
           .subscribe((m) => {
+            console.log( "m: ", m);
             that.zone.run(() => { 
               console.log( "added: ", m);
               that.item = m;
