@@ -1,6 +1,7 @@
 import {
   Inject,
-  Injectable
+  Injectable,
+  NgZone
 } from "@angular/core";
 
 import {
@@ -18,7 +19,7 @@ import "rxjs/add/operator/map";
 export class TodoService {
   static ENDPOINT: string = "/api/todos/:id";
 
-  constructor(@Inject(Http) private _http: Http) {
+  constructor(@Inject(Http) private _http: Http, private zone:NgZone) {
 
   }
 

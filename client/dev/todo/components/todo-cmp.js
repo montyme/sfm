@@ -14,9 +14,10 @@ var todo_service_1 = require("../services/todo-service");
 var geolocation_service_1 = require("../services/geolocation-service");
 require('aws-sdk/dist/aws-sdk');
 var TodoCmp = (function () {
-    function TodoCmp(_todoService, geolocation) {
+    function TodoCmp(_todoService, geolocation, zone) {
         this._todoService = _todoService;
         this.geolocation = geolocation;
+        this.zone = zone;
         this.title = "UNAUTHORIZED SFMOMA SHOW";
         this.file_url = "";
         this.inmoma = false;
@@ -49,8 +50,10 @@ var TodoCmp = (function () {
         this._todoService
             .getAll()
             .subscribe(function (todos) {
-            console.log('Got item: ', todos);
-            that.item = todos;
+            that.zone.run(function () {
+                console.log('Got item: ', todos);
+                that.item = todos;
+            });
         });
     };
     TodoCmp.prototype.fileEvent = function (fileInput) {
@@ -93,9 +96,11 @@ var TodoCmp = (function () {
                 that._todoService
                     .add(todoForm)
                     .subscribe(function (m) {
-                    console.log("added: ", m);
-                    that.item = m;
-                    that.view();
+                    that.zone.run(function () {
+                        console.log("added: ", m);
+                        that.item = m;
+                        that.view();
+                    });
                 });
             }
         });
@@ -175,6 +180,6 @@ TodoCmp = __decorate([
         templateUrl: "todo/templates/todo.html",
         styleUrls: ["todo/styles/todo.css"]
     }),
-    __metadata("design:paramtypes", [todo_service_1.TodoService, geolocation_service_1.GeolocationService])
+    __metadata("design:paramtypes", [todo_service_1.TodoService, geolocation_service_1.GeolocationService, core_1.NgZone])
 ], TodoCmp);
 exports.TodoCmp = TodoCmp;

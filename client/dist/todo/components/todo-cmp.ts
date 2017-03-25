@@ -1,6 +1,7 @@
 import {
   Component,
-  OnInit
+  OnInit,
+  NgZone
 } from "@angular/core";
 
 import {
@@ -63,7 +64,7 @@ export class TodoCmp implements OnInit {
   zoom: string;
 
 
-  constructor(private _todoService: TodoService, private geolocation: GeolocationService ) {
+  constructor(private _todoService: TodoService, private geolocation: GeolocationService, private zone:NgZone ) {
     this.todoForm = {
       "todoMessage": ""
     };
@@ -80,8 +81,10 @@ export class TodoCmp implements OnInit {
     this._todoService
         .getAll()
         .subscribe((todos) => {
-          console.log( 'Got item: ', todos);
-          that.item = todos;
+          that.zone.run(() => {
+            console.log( 'Got item: ', todos);
+            that.item = todos;
+          });
         });
   }
 
@@ -128,9 +131,11 @@ export class TodoCmp implements OnInit {
         that._todoService
           .add(todoForm)
           .subscribe((m) => {
-            console.log( "added: ", m);
-            that.item = m;
-            that.view();
+            that.zone.run(() => { 
+              console.log( "added: ", m);
+              that.item = m;
+              that.view();
+            });
         });
       }
     });
