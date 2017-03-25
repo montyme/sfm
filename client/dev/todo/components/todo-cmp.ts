@@ -76,10 +76,12 @@ export class TodoCmp implements OnInit {
   }
 
   private _getAll(): void {
+    let that = this;
     this._todoService
         .getAll()
         .subscribe((todos) => {
-          this.item = todos;
+          console.log( 'Got item: ', todos);
+          that.item = todos;
         });
   }
 

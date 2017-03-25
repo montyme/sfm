@@ -45,11 +45,12 @@ var TodoCmp = (function () {
         this.getCurrentPosition();
     };
     TodoCmp.prototype._getAll = function () {
-        var _this = this;
+        var that = this;
         this._todoService
             .getAll()
             .subscribe(function (todos) {
-            _this.item = todos;
+            console.log('Got item: ', todos);
+            that.item = todos;
         });
     };
     TodoCmp.prototype.fileEvent = function (fileInput) {
