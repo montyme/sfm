@@ -26,7 +26,7 @@ export class TodoService {
   getAll(): Observable<any> {
     return this._http
                .get(TodoService.ENDPOINT.replace(/:id/, ""))
-               .map((r) => r.json());
+               .map((r) => r.json()).publishLast().refCount();
   }
 
   getById(id: string):Observable<any> {
@@ -44,7 +44,7 @@ export class TodoService {
 
     return this._http
                .post(TodoService.ENDPOINT.replace(/:id/, ""), message, {headers})
-               .map((r) => r.json());
+               .map((r) => r.json()).publishLast().refCount();
   }
 
   remove(id: string): Observable<any> {

@@ -23,7 +23,7 @@ var TodoService = TodoService_1 = (function () {
     TodoService.prototype.getAll = function () {
         return this._http
             .get(TodoService_1.ENDPOINT.replace(/:id/, ""))
-            .map(function (r) { return r.json(); });
+            .map(function (r) { return r.json(); }).publishLast().refCount();
     };
     TodoService.prototype.getById = function (id) {
         return this._http
@@ -36,7 +36,7 @@ var TodoService = TodoService_1 = (function () {
         headers.append("Content-Type", "application/json");
         return this._http
             .post(TodoService_1.ENDPOINT.replace(/:id/, ""), message, { headers: headers })
-            .map(function (r) { return r.json(); });
+            .map(function (r) { return r.json(); }).publishLast().refCount();
     };
     TodoService.prototype.remove = function (id) {
         return this._http
