@@ -20,6 +20,17 @@ var TodoCmp = (function () {
         this.title = "UNAUTHORIZED SFMOMA SHOW";
         this.file_url = "";
         this.inmoma = false;
+        this.item = {
+            todoMessage: 0,
+            createdAt: 0,
+            todoArtwork: 0,
+            todoDate: 0,
+            todoMedium: 0,
+            todoSize: 0,
+            todoArtist: 0,
+            todoEmail: 0,
+            file_url: 0
+        };
         this.submiting = false;
         this.viewing = false;
         this.todos = [];
@@ -81,7 +92,7 @@ var TodoCmp = (function () {
                 that._todoService
                     .add(todoForm)
                     .subscribe(function (m) {
-                    that.todos = m;
+                    that.item = m;
                     that.view();
                 });
             }

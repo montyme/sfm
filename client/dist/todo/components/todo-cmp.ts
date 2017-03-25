@@ -38,7 +38,17 @@ export class TodoCmp implements OnInit {
   warning: boolean;
   located: boolean;
   inmoma: boolean = false;
-  item: any;
+  item: any = {
+    todoMessage: 0,
+    createdAt: 0,
+    todoArtwork: 0,
+    todoDate: 0,
+    todoMedium: 0,
+    todoSize: 0,
+    todoArtist: 0,
+    todoEmail: 0,
+    file_url: 0
+  };
   submiting: boolean = false;
   viewing: boolean = false;
   message: string;
@@ -116,7 +126,7 @@ export class TodoCmp implements OnInit {
         that._todoService
           .add(todoForm)
           .subscribe((m) => {
-            that.todos = m;
+            that.item = m;
             that.view();
         });
       }
