@@ -141,7 +141,7 @@ var TodoCmp = (function () {
                 _this.warning = false;
                 _this.located = true;
                 _this.distance = _this.getDistance(position.coords.latitude, position.coords.longitude, '37.785665', '-122.400502');
-                if (_this.distance < 145000) {
+                if (_this.distance < 0.145) {
                     _this.inmoma = true;
                 }
                 //  }
