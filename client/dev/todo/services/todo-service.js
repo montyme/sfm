@@ -34,7 +34,7 @@ var TodoService = TodoService_1 = (function () {
         var headers = new http_1.Headers();
         headers.append("Content-Type", "application/json");
         return this._http
-            .post(TodoService_1.ENDPOINT.replace(/:id/, ""), _messageStringified, { headers: headers })
+            .post(TodoService_1.ENDPOINT.replace(/:id/, ""), message, { headers: headers })
             .map(function (r) { return r.json(); });
     };
     TodoService.prototype.remove = function (id) {

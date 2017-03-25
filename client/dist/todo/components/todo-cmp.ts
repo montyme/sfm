@@ -17,6 +17,9 @@ import {
   GeolocationService
 } from "../services/geolocation-service";
 
+require('aws-sdk/dist/aws-sdk');
+
+
 type Todo = {
   todoMessage: string;
 
@@ -30,6 +33,8 @@ type Todo = {
 })
 export class TodoCmp implements OnInit {
   title: string = "UNAUTHORIZED SFMOMA SHOW";
+  file: any;
+  file_url: string = "";
   warning: boolean;
   located: boolean;
   inmoma: boolean = false;
@@ -67,6 +72,13 @@ export class TodoCmp implements OnInit {
         });
   }
 
+  fileEvent(fileInput:any){
+    var files = fileInput.target.files;
+    var file = files[0];
+    this.file = file;
+    console.log("Selected file: ", this.file );
+  }
+
   submit(): void{
     this.submiting = true;
     this.viewing = false;
@@ -85,13 +97,29 @@ export class TodoCmp implements OnInit {
     this.isClassVisible = false;
   }
 
-  add(message: string): void {
-    this._todoService
-        .add(message)
-        .subscribe((m) => {
-          this.todos.push(m);
-          this.todoForm.todoMessage = "";
+  add(todoForm:any): void {
+    let AWSService = (<any>window).AWS; 
+    console.log(AWSService);
+    let file = this.file;
+    AWSService.config.accessKeyId = "AKIAJGBCGJ455OKL6PIQ";
+    AWSService.config.secretAccessKey = "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";
+    let bucket = new AWSService.S3({params: {Bucket: 'sfmomashow'}});
+    let params = {Key:file.name, Body: file};
+    let that = this;
+    bucket.upload( params, function( error, res ){
+      if( error ){
+        console.log( 'error: ', error );
+      }else{
+        console.log( 'response: ', res);
+        todoForm.file_url = res.Location;
+        that._todoService
+          .add(todoForm)
+          .subscribe((m) => {
+            that.todos = m;
+            that.view();
         });
+      }
+    });
   }
 
   remove(id: string): void {

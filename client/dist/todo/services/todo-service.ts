@@ -34,7 +34,7 @@ export class TodoService {
                .map((r) => r.json());
   }
 
-  add(message: string): Observable<any> {
+  add(message: any): Observable<any> {
     let _messageStringified = JSON.stringify({todoMessage: message});
 
     let headers = new Headers();
@@ -42,7 +42,7 @@ export class TodoService {
     headers.append("Content-Type", "application/json");
 
     return this._http
-               .post(TodoService.ENDPOINT.replace(/:id/, ""), _messageStringified, {headers})
+               .post(TodoService.ENDPOINT.replace(/:id/, ""), message, {headers})
                .map((r) => r.json());
   }
 

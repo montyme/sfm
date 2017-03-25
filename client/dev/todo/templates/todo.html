@@ -23,7 +23,8 @@
 
   <form class="todo-form"
         *ngIf="submiting" 
-        (submit)="add(todoForm.todoMessage)">
+        (submit)="add(todoForm)">
+
     <p>Please fill in the form and upload your work here. Every work uploaded will be accepeted and exhibited inmmediately.</p>
 
     <p><span class="red">* Mandatory fields</span></p>
@@ -42,7 +43,12 @@
            [(ngModel)]="todoForm.todoArtwork"
                       />
     </label>
-
+    <label for="file">
+      <span class="red">*</span>Title of the file:<br>
+          <input id="file" class="text-input" type="file"
+           (change)="fileEvent($event)" required
+                      />
+    </label>
     <label for="artist">
       <span class="red">*</span>Name of the artist:<br>
           <input id="artist" class="text-input" type="text"
@@ -84,9 +90,7 @@
                       />
     </label>
 
-    <p><span class="red">* Mandatory fields</span></p>
-
-    <button type="submit" [disabled]="!todoForm.todoMessage.length">UPLOAD</button>
+    <button type="submit" [disabled]="!file">UPLOAD</button>
 
     <div id="tyc">
       <h3>EXHIBITION TERMS AND CONDITIONS</h3>

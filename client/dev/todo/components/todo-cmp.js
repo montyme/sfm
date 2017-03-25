@@ -12,11 +12,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var todo_service_1 = require("../services/todo-service");
 var geolocation_service_1 = require("../services/geolocation-service");
+require('aws-sdk/dist/aws-sdk');
 var TodoCmp = (function () {
     function TodoCmp(_todoService, geolocation) {
         this._todoService = _todoService;
         this.geolocation = geolocation;
         this.title = "UNAUTHORIZED SFMOMA SHOW";
+        this.file_url = "";
         this.inmoma = false;
         this.submiting = false;
         this.viewing = false;
@@ -39,6 +41,12 @@ var TodoCmp = (function () {
             _this.todos = todos;
         });
     };
+    TodoCmp.prototype.fileEvent = function (fileInput) {
+        var files = fileInput.target.files;
+        var file = files[0];
+        this.file = file;
+        console.log("Selected file: ", this.file);
+    };
     TodoCmp.prototype.submit = function () {
         this.submiting = true;
         this.viewing = false;
@@ -54,13 +62,29 @@ var TodoCmp = (function () {
         this.viewing = false;
         this.isClassVisible = false;
     };
-    TodoCmp.prototype.add = function (message) {
-        var _this = this;
-        this._todoService
-            .add(message)
-            .subscribe(function (m) {
-            _this.todos.push(m);
-            _this.todoForm.todoMessage = "";
+    TodoCmp.prototype.add = function (todoForm) {
+        var AWSService = window.AWS;
+        console.log(AWSService);
+        var file = this.file;
+        AWSService.config.accessKeyId = "AKIAJGBCGJ455OKL6PIQ";
+        AWSService.config.secretAccessKey = "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";
+        var bucket = new AWSService.S3({ params: { Bucket: 'sfmomashow' } });
+        var params = { Key: file.name, Body: file };
+        var that = this;
+        bucket.upload(params, function (error, res) {
+            if (error) {
+                console.log('error: ', error);
+            }
+            else {
+                console.log('response: ', res);
+                todoForm.file_url = res.Location;
+                that._todoService
+                    .add(todoForm)
+                    .subscribe(function (m) {
+                    that.todos = m;
+                    that.view();
+                });
+            }
         });
     };
     TodoCmp.prototype.remove = function (id) {
