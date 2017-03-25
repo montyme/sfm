@@ -121,7 +121,9 @@ export class TodoCmp implements OnInit {
     AWSService.config.accessKeyId = "AKIAJGBCGJ455OKL6PIQ";
     AWSService.config.secretAccessKey = "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";
     let bucket = new AWSService.S3({params: {Bucket: 'sfmomashow'}});
-    let params = {Key:file.name, Body: file};
+    let d = new Date();
+    let n = d.getTime();
+    let params = {Key:file.name+n, Body: file};
     let that = this;
     bucket.upload( params, function( error, res ){
       if( error ){

@@ -66,9 +66,9 @@
             />
     </label>
     <label for="artist">
-      <span class="red">*</span>Name of the applicant (if different than name of the artist):<br>
+      Name of the applicant (if different than name of the artist):<br>
           <input id="artist" class="text-input" type="text"
-           name="todoArtist" required
+           name="todoArtist"
            [(ngModel)]="todoForm.todoArtist"
                       />
     </label>
@@ -131,6 +131,7 @@
           <h2>{{item?.todoMessage}}</h2>
           <h3>{{item?.todoArtwork}}</h3>
           <h4 *ngIf="item?.todoMedium">{{item?.todoMedium}}</h4>
+          <h5 *ngIf="item?.todoSize">{{item?.todoSize}}</h5>
 
           <div class="art-holder" id="art-detail">
             <img src="{{item?.file_url}}">
@@ -140,7 +141,7 @@
             <img src="{{item?.file_url}}">
           </div>
 
-          <p>On view from April 6th, 2017</p>
+          <p>On view from {{item?.createdAt}}</p>
           
           <p>If you have any questions please don't hesitate to contact us: <a href="mailto:unauthorized@sfmoma.show">unauthorized@sfmoma.show</a></p>
          </div>

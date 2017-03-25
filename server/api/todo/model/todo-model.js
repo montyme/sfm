@@ -9,7 +9,7 @@ const _todoSchema = {
     todoDate: {type: Number, required: true},
     todoMedium: {type: String, required: false},
     todoSize: {type: String, required: false},
-    todoArtist: {type: String, required: true},
+    todoArtist: {type: String, required: false},
     todoEmail: {type: String, required: false},
     file_url: {type: String, required: true}
 }
