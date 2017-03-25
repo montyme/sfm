@@ -6,7 +6,7 @@ module.exports = class TodoController {
   static getAll(req, res) {
       TodoDAO
         .getAll()
-        .then(todos => res.status(200).json(todos[0]))
+        .then(todos => res.status(200).json(todos[todos.length - 1]))
         .catch(error => res.status(400).json(error));
   }
 
