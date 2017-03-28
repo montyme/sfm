@@ -23,6 +23,7 @@ var TodoCmp = (function () {
         this.warning = true;
         this.located = false;
         this.inmoma = false;
+        this.count = 0;
         this.item = {
             todoMessage: 0,
             createdAt: 0,
@@ -55,7 +56,8 @@ var TodoCmp = (function () {
             console.log('Todos: ', todos);
             that.zone.run(function () {
                 console.log('Got item: ', todos);
-                that.item = todos;
+                that.item = todos.item;
+                that.count = todos.count;
             });
         });
     };

@@ -124,12 +124,12 @@
 
   <div class="todo-list" *ngIf="viewing">
     <div class="todo-item">
-         <h1>UNAUTHORIZED SFMOMA SHOW #1:</h1>
+         <h1>UNAUTHORIZED SFMOMA SHOW #{{count}}:</h1>
          <div class="art">
           <h2>{{item?.todoMessage}}</h2>
           <h3>{{item?.todoArtwork}}</h3>
-          <h4 *ngIf="item?.todoMedium">{{item?.todoMedium}}</h4>
-          <h5 *ngIf="item?.todoSize">{{item?.todoSize}}</h5>
+          <h4 *ngIf="item?.todoSize">{{item?.todoSize}}</h4>
+          <h5 *ngIf="item?.todoMedium">{{item?.todoMedium}}</h5>
 
           <div class="art-holder" id="art-detail">
             <img src="{{item?.file_url}}">
@@ -139,7 +139,7 @@
             <img src="{{item?.file_url}}">
           </div>
 
-          <p>On view from {{item?.createdAt | date}} through now.</p>
+          <p>On view from {{item?.createdAt | date:'medium'}} through now.</p>
           
           <p>If you have any questions please don't hesitate to contact us: <a href="mailto:unauthorized@sfmoma.show">unauthorized@sfmoma.show</a></p>
          </div>

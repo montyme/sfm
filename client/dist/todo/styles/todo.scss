@@ -183,10 +183,9 @@ $primary-color: #fc4a42;
 
 .todo-container .todo-item {
   background-color: #fff;
-  border-left: 8px solid;
-  border-right: 8px solid;
-  border-bottom: 8px solid;
-  border-color: $primary-color;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
   padding: 1em 5em 2em;
   border-bottom: 1px solid #ddd;
   text-align: left;
@@ -223,7 +222,8 @@ $primary-color: #fc4a42;
       border: 1px solid $primary-color;
       height: auto;
       height: auto;
-      max-width: 80%;
+      max-height: 70%;
+      max-width: 70%;
       margin: 1em 0;
     }
 

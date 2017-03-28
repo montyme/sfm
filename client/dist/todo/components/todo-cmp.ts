@@ -39,6 +39,7 @@ export class TodoCmp implements OnInit {
   warning: boolean = true;
   located: boolean = false;
   inmoma: boolean = false;
+  count: Number = 0;
   item: any = {
     todoMessage: 0,
     createdAt: 0,
@@ -84,7 +85,8 @@ export class TodoCmp implements OnInit {
           console.log('Todos: ', todos);
           that.zone.run(() => {
             console.log( 'Got item: ', todos);
-            that.item = todos;
+            that.item = todos.item;
+            that.count = todos.count;
           });
         });
   }
