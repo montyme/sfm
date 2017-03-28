@@ -219,9 +219,12 @@ $primary-color: #fc4a42;
     padding: 0em 0;
 
     img {
+      background: url(/todo/styles/img/load.gif) no-repeat 50% 50%;
       border: 1px solid $primary-color;
       height: auto;
       width: auto;
+      min-height: 55px;
+      min-width: 55px;
       max-height: 70%;
       max-width: 70%;
       margin: 1em 0;
