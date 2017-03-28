@@ -23,7 +23,7 @@
         *ngIf="submiting" 
         (submit)="add(todoForm)">
 
-    <p>Please fill in the form and upload your work here. Every work uploaded will be accepeted and exhibited inmmediately. If you have any questions please don't hesitate to contact us: <a href="mailto:unauthorized@sfmoma.show" target="_blank">unauthorized@sfmoma.show</a></p>
+    <p>Please fill in the form and upload your work here. Every work uploaded will be accepeted and exhibited inmmediately. If you have any questions please don't hesitate to contact us: <a href="mailto:unauthorized@sfmoma.show">unauthorized@sfmoma.show</a></p>
 
     <p><span class="red">* Mandatory fields</span></p>
     
@@ -124,7 +124,7 @@
 
   <div class="todo-list" *ngIf="viewing">
     <div class="todo-item">
-         <h1>UNAUTHORIZED SFMOMA SHOW:</h1>
+         <h1>UNAUTHORIZED SFMOMA SHOW #1:</h1>
          <div class="art">
           <h2>{{item?.todoMessage}}</h2>
           <h3>{{item?.todoArtwork}}</h3>
@@ -139,9 +139,9 @@
             <img src="{{item?.file_url}}">
           </div>
 
-          <p>On view from {{item?.createdAt}}</p>
+          <p>On view from {{item?.createdAt}} through now.</p>
           
-          <p>If you have any questions please don't hesitate to contact us: <a href="mailto:unauthorized@sfmoma.show" target="_blank">unauthorized@sfmoma.show</a></p>
+          <p>If you have any questions please don't hesitate to contact us: <a href="mailto:unauthorized@sfmoma.show">unauthorized@sfmoma.show</a></p>
          </div>
     </div>
   </div>
