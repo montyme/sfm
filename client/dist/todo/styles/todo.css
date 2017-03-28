@@ -148,7 +148,7 @@
   text-align: left; }
   .todo-container .todo-item h1 {
     font-size: 28px; }
-  .todo-container .todo-item h2, .todo-container .todo-item h3, .todo-container .todo-item h4 {
+  .todo-container .todo-item h2, .todo-container .todo-item h3, .todo-container .todo-item h4, .todo-container .todo-item h5 {
     font-size: 22px;
     font-weight: 500;
     line-height: 1.1em;
@@ -156,12 +156,12 @@
     padding: 0; }
   .todo-container .todo-item h3 {
     font-style: italic; }
-  .todo-container .todo-item h4 {
+  .todo-container .todo-item h5 {
     margin-bottom: 1em; }
   .todo-container .todo-item .art-holder {
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     text-align: center;
     margin: 0  0 1em;
     padding: 0em 0; }

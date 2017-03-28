@@ -20,6 +20,8 @@ var TodoCmp = (function () {
         this.zone = zone;
         this.title = "UNAUTHORIZED SFMOMA SHOW";
         this.file_url = "";
+        this.warning = true;
+        this.located = false;
         this.inmoma = false;
         this.item = {
             todoMessage: 0,
@@ -123,8 +125,6 @@ var TodoCmp = (function () {
     // Tries to get the current position.
     TodoCmp.prototype.getCurrentPosition = function () {
         var _this = this;
-        this.located = false;
-        this.warning = false;
         this.message = "";
         if (navigator.geolocation) {
             console.log("Getting position");
@@ -141,7 +141,7 @@ var TodoCmp = (function () {
                 _this.warning = false;
                 _this.located = true;
                 _this.distance = _this.getDistance(position.coords.latitude, position.coords.longitude, '37.785665', '-122.400502');
-                if (_this.distance < 0.145) {
+                if (_this.distance < 145000) {
                     _this.inmoma = true;
                 }
                 //  }

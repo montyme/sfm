@@ -4,13 +4,11 @@
 
   <h1 [class.shadow]="isClassVisible" class="todo-title" (click)="reset()">{{title}}</h1>
 
+  <div class="huge about" *ngIf="!viewing && !submiting && !inmoma">
 
-  <div class="huge about" *ngIf="warning">
-    <p>Please enable location services in your computer or device to visit or participate in this exhibition.</p>
-  </div>
+    <p *ngIf="warning">Please enable location services in your computer or device to visit or participate in this exhibition.</p>
 
-  <div class="huge about" *ngIf="!viewing && !submiting && !inmoma && !warning">
-    <p>You have to physically be in SFMOMA to visit or participate in this exhibition. Unfortunately it looks like you are currently at: {{center}}, which is {{distance}} km away</p>
+    <p *ngIf="!inmoma && located">You have to physically be in SFMOMA to visit or participate in this exhibition. Unfortunately it looks like you are currently at: {{center}}, which is {{distance}} km away</p>
 
     <p>Unauthorized SFMOMA Show is a series of individual solo exhibitions that will take place from the 6th of april until the 2nd of July within the physical public spaces of SFMOMA.</p>
 
@@ -25,7 +23,7 @@
         *ngIf="submiting" 
         (submit)="add(todoForm)">
 
-    <p>Please fill in the form and upload your work here. Every work uploaded will be accepeted and exhibited inmmediately. If you have any questions please don't hesitate to contact us: <a href="mailto:unauthorized@sfmoma.show">unauthorized@sfmoma.show</a></p>
+    <p>Please fill in the form and upload your work here. Every work uploaded will be accepeted and exhibited inmmediately. If you have any questions please don't hesitate to contact us: <a href="mailto:unauthorized@sfmoma.show" target="_blank">unauthorized@sfmoma.show</a></p>
 
     <p><span class="red">* Mandatory fields</span></p>
     
@@ -143,7 +141,7 @@
 
           <p>On view from {{item?.createdAt}}</p>
           
-          <p>If you have any questions please don't hesitate to contact us: <a href="mailto:unauthorized@sfmoma.show">unauthorized@sfmoma.show</a></p>
+          <p>If you have any questions please don't hesitate to contact us: <a href="mailto:unauthorized@sfmoma.show" target="_blank">unauthorized@sfmoma.show</a></p>
          </div>
     </div>
   </div>

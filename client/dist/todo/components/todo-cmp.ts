@@ -36,8 +36,8 @@ export class TodoCmp implements OnInit {
   title: string = "UNAUTHORIZED SFMOMA SHOW";
   file: any;
   file_url: string = "";
-  warning: boolean;
-  located: boolean;
+  warning: boolean = true;
+  located: boolean = false;
   inmoma: boolean = false;
   item: any = {
     todoMessage: 0,
@@ -159,8 +159,6 @@ export class TodoCmp implements OnInit {
   // Tries to get the current position.
   getCurrentPosition() {
 
-      this.located = false;
-      this.warning = false;
       this.message = "";
 
       if (navigator.geolocation) {
@@ -189,7 +187,7 @@ export class TodoCmp implements OnInit {
                                         '-122.400502'
                                       );
 
-                      if( this.distance < 0.145 ){
+                      if( this.distance < 145000 ){
                         this.inmoma = true;
                       }
 
