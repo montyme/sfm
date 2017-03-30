@@ -6,13 +6,13 @@
 
   <div class="huge about" *ngIf="!viewing && !submiting && !inmoma">
 
-    <p *ngIf="warning">Please enable location services in your computer or device to visit or participate in this exhibition.</p>
+    <p class="conditional" *ngIf="warning">Please, allow location access to Unauthorized SFMOMA Show in order to confirm that you are currently at SFMOMA.</p>
 
-    <p *ngIf="!inmoma && located">You have to physically be in SFMOMA to visit or participate in this exhibition. Unfortunately it looks like you are currently at: {{center}}, which is {{distance}} km away</p>
+    <p class="conditional" *ngIf="!inmoma && located">You have to be at SFMOMA to visit or participate in this exhibition. Unfortunately, it looks like you are currently at: {{center}}, which is {{distance}} km away.</p>
 
-    <p>Unauthorized SFMOMA Show is a series of individual solo exhibitions that will take place from the 6th of april until the 2nd of July within the physical public spaces of SFMOMA.</p>
+    <p>Unauthorized SFMOMA Show is a series of solo exhibitions that will take place within the public spaces of SFMOMA from April 6-July 2 on a rotating basis.</p>
 
-    <p>Through these unauthorized SFMOMA exhibitions, which are free to visit and participate, we invite you to act as an institutional agent by means of cultural creation, selection and propagation. The only requirement to be part of unauthorized SFMOMA exhibitions is to be in the public spaces of SFMOMA and have access to a device that can connect to sfmoma.show</p>
+    <p>Through these unauthorized SFMOMA exhibitions, which are free to visit and participate, we invite you to act as an institutional agent by means of cultural creation, selection and propagation. The only requirement to be part of unauthorized SFMOMA exhibitions is to be in the public spaces of SFMOMA and have access to a device that can connect to the website sfmoma.show</p>
 
     <p>If you have any questions, please don’t hesitate to contact us at <a href="mailto:unauthorized@sfmoma.show">unauthorized@sfmoma.show</a></p>
   </div>
