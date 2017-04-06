@@ -37,6 +37,7 @@ var TodoCmp = (function () {
         };
         this.submiting = false;
         this.viewing = false;
+        this.message = 'Please, allow location access to Unauthorized SFMOMA Show in order to confirm that you are currently at SFMOMA.';
         this.todos = [];
         this.isClassVisible = false;
         this.center = "Undisclosed Location";
@@ -73,11 +74,13 @@ var TodoCmp = (function () {
         this.isClassVisible = true;
     };
     TodoCmp.prototype.view = function () {
+        this._getAll();
         this.submiting = false;
         this.viewing = true;
         this.isClassVisible = true;
     };
     TodoCmp.prototype.reset = function () {
+        this._getAll();
         this.submiting = false;
         this.viewing = false;
         this.isClassVisible = false;
@@ -142,8 +145,8 @@ var TodoCmp = (function () {
                 _this.message = "";
                 _this.warning = false;
                 _this.located = true;
-                _this.distance = _this.getDistance(position.coords.latitude, position.coords.longitude, '37.785665', '-122.400502');
-                if (_this.distance < 0.145) {
+                _this.distance = _this.getDistance(position.coords.latitude, position.coords.longitude, '37.785665', '-122.400502').toFixed(3);
+                if (_this.distance < 145000) {
                     _this.inmoma = true;
                 }
                 //  }
@@ -151,13 +154,13 @@ var TodoCmp = (function () {
                 if (error.code > 0) {
                     switch (error.code) {
                         case error.PERMISSION_DENIED:
-                            _this.message = 'permission denied';
+                            _this.message = 'You have to be at SFMOMA to visit or participate in this exhibition. If you don’t allow location access to Unauthorized SFMOMA Show, it is impossible to confirm that you are at SFMOMA right now.';
                             break;
                         case error.POSITION_UNAVAILABLE:
-                            _this.message = 'position unavailable';
+                            _this.message = 'You have to be at SFMOMA to visit or participate in this exhibition. If you don’t allow location access to Unauthorized SFMOMA Show, it is impossible to confirm that you are at SFMOMA right now.';
                             break;
                         case error.TIMEOUT:
-                            _this.message = 'position timeout';
+                            _this.message = 'Please, allow location access to Unauthorized SFMOMA Show in order to confirm that you are currently at SFMOMA.';
                             break;
                     }
                     _this.warning = true;

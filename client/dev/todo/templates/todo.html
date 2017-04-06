@@ -6,13 +6,15 @@
 
   <div class="huge about" *ngIf="!viewing && !submiting && !inmoma">
 
-    <p class="conditional" *ngIf="warning">Please, allow location access to Unauthorized SFMOMA Show in order to confirm that you are currently at SFMOMA.</p>
+    <p class="conditional" *ngIf="warning">
+      {{message || 'Please, allow location access to Unauthorized SFMOMA Show in order to confirm that you are currently at SFMOMA.'}}
+    </p>
 
     <p class="conditional" *ngIf="!inmoma && located">You have to be at SFMOMA to visit or participate in this exhibition. Unfortunately, it looks like you are currently at: {{center}}, which is {{distance}} km away.</p>
 
     <p>Unauthorized SFMOMA Show is a series of solo exhibitions that will take place within the public spaces of SFMOMA from April 6-July 2 on a rotating basis.</p>
 
-    <p>Through these unauthorized SFMOMA exhibitions, which are free to visit and participate, we invite you to act as an institutional agent by means of cultural creation, selection and propagation. The only requirement to be part of unauthorized SFMOMA exhibitions is to be in the public spaces of SFMOMA and have access to a device that can connect to the website sfmoma.show</p>
+    <p>Through these Unauthorized SFMOMA shows, which are free to visit and participate, we invite you to act as an institutional agent by means of cultural creation, selection and propagation. The only requirement to be part of Unauthorized SFMOMA shows is to be in the public spaces of SFMOMA and have access to a device that can connect to the website sfmoma.show</p>
 
     <p>If you have any questions, please don’t hesitate to contact us at <a href="mailto:unauthorized@sfmoma.show">unauthorized@sfmoma.show</a></p>
   </div>
@@ -50,14 +52,14 @@
                       />
     </label>
     <label for="medium">
-      Medium:<br>
+      Medium: <small>(not mandatory)</small><br>
           <input id="medium" class="text-input" type="text"
            name="todoMedium"
            [(ngModel)]="todoForm.todoMedium"
             />
     </label>
     <label for="size">
-      Size:<br>
+      Dimensions/duration: <small>(not mandatory)</small><br>
           <input id="size" class="text-input" type="text"
            name="todoSize"
            [(ngModel)]="todoForm.todoSize"
@@ -71,7 +73,7 @@
                       />
     </label>
     <label for="email">
-      E-mail:<br>
+      E-mail: <small>(not mandatory)</small><br>
           <input id="email" class="text-input" type="email"
            name="todoEmail"
            [(ngModel)]="todoForm.todoEmail"
@@ -87,19 +89,19 @@
     <button type="submit" [disabled]="!file">UPLOAD</button>
 
     <div id="tyc">
-      <h3>EXHIBITION TERMS AND CONDITIONS</h3>
+      <h3>SHOW TERMS AND CONDITIONS</h3>
 
 
       <ol>
         <h4>GENERAL</h4>
 
-        <li>The unauthorized SFMOMA exhibition will exercise the same care with respect to the work of art referred to on the application submission form as it does in the safekeeping of its own property.</li>
+        <li>The Unauthorized SFMOMA show will exercise the same care with respect to the work of art referred to on the application submission form as it does in the safekeeping of its own property.</li>
         <li>The artwork will remain in the exhibition from the moment of its submission until this same exhibition comes to an end, being three months the maximum time for an artwork’s exhibition. The exact exhibition period is unknown by unauthorized SFMOMA staff as well as the submitter and will solely depend on the number of submissions received.</li>
         <li>The submitter accepts the conditions of this exhibition as stated on these terms and warrants that she/he have full authorization to enter into this exhibition.</li>
 
         <h4>PUBLICITY AND PHOTOGRAPHY</h4>
 
-        <li>It is understood that unauthorized SFMOMA exhibition staff has the right to photograph or digitally store this artwork for the solely purpose of documentation record and catalog reproduction.</li>
+        <li>It is understood that Unauthorized SFMOMA show staff has the right to photograph or digitally store this artwork for the solely purpose of documentation record and catalog reproduction.</li>
 
         <li>In the future case of a catalogue publication and/or public presentation of the exhibition documentation, all work will be accompany by its caption (artist name, artwork title, date, medium and dimensions) exactly as stated in the submission application.</li>
 
@@ -107,15 +109,15 @@
 
         <li>Work will not be returned to the submitter address at the end of the exhibition, unless otherwise requested by the submitter in writing.</li>
 
-        <li>Unauthorized SFMOMA exhibition is not responsible for any damaged produced to the artwork during its installation or exhibition. The submitter understands that special handling and installation instructions won’t be take into consideration.</li>
+        <li>Unauthorized SFMOMA show is not responsible for any damaged produced to the artwork during its installation or exhibition. The submitter understands that special handling and installation instructions won’t be take into consideration.</li>
 
         <h4>INSURANCE</h4>
 
-        <li>Unauthorized SFMOMA exhibitions will not insure the artwork submitted under any fine arts policy against any risk of digital loss, damage or theft by any external cause while in transit or in location during the period of the exhibition.</li>
+        <li>Unauthorized SFMOMA shows will not insure the artwork submitted under any fine arts policy against any risk of digital loss, damage or theft by any external cause while in transit or in location during the period of the exhibition.</li>
 
         <h4>CONSERVATION</h4>
 
-        <li>It is understood that unauthorized SFMOMA exhibition (or any participating institution/museum) will not clean, restore, or otherwise alter the work without the consent of the submitter.</li>
+        <li>It is understood that Unauthorized SFMOMA show (or any participating institution/museum) will not clean, restore, or otherwise alter the work without the consent of the submitter.</li>
 
       </ol>
     </div>

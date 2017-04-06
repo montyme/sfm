@@ -37,7 +37,8 @@ $primary-color: #fc4a42;
       max-width: 570px;
 
       &.conditional {
-        font-size: 20px;
+        font-size: 30px;
+        line-height: 36px;
       }
     }
   }
@@ -224,7 +225,7 @@ $primary-color: #fc4a42;
 
     img {
       background: url(/todo/styles/img/load.gif) no-repeat 50% 50%;
-      border: 1px solid $primary-color;
+      border: none;
       height: auto;
       width: auto;
       min-height: 55px;

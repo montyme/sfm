@@ -31,6 +31,9 @@
       display: block;
       margin: 0 auto 1em;
       max-width: 570px; }
+      .huge.about p.conditional {
+        font-size: 30px;
+        line-height: 36px; }
   .huge.see {
     background-color: white;
     border-bottom: 8px solid;
@@ -139,10 +142,9 @@
 
 .todo-container .todo-item {
   background-color: #fff;
-  border-left: 8px solid;
-  border-right: 8px solid;
-  border-bottom: 8px solid;
-  border-color: #fc4a42;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
   padding: 1em 5em 2em;
   border-bottom: 1px solid #ddd;
   text-align: left; }
@@ -166,10 +168,14 @@
     margin: 0  0 1em;
     padding: 0em 0; }
     .todo-container .todo-item .art-holder img {
-      border: 1px solid #fc4a42;
+      background: url(/todo/styles/img/load.gif) no-repeat 50% 50%;
+      border: none;
       height: auto;
-      height: auto;
-      max-width: 80%;
+      width: auto;
+      min-height: 55px;
+      min-width: 55px;
+      max-height: 70%;
+      max-width: 70%;
       margin: 1em 0; }
     .todo-container .todo-item .art-holder#art-detail {
       background-image: url("/todo/styles/img/SFMOMA_ExhibitionView_1.jpg"); }

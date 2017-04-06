@@ -53,7 +53,7 @@ export class TodoCmp implements OnInit {
   };
   submiting: boolean = false;
   viewing: boolean = false;
-  message: string;
+  message: string = 'Please, allow location access to Unauthorized SFMOMA Show in order to confirm that you are currently at SFMOMA.';
   todos: Todo[] = [];
   todoForm: Todo;
   distance: any;
@@ -105,12 +105,14 @@ export class TodoCmp implements OnInit {
   }
 
   view(): void{
+    this._getAll();
     this.submiting = false;
     this.viewing = true;
     this.isClassVisible = true;
   }
 
   reset(): void {
+    this._getAll();
     this.submiting = false;
     this.viewing = false;
     this.isClassVisible = false;
@@ -187,9 +189,9 @@ export class TodoCmp implements OnInit {
                                         position.coords.longitude, 
                                         '37.785665', 
                                         '-122.400502'
-                                      );
+                                      ).toFixed(3);
 
-                      if( this.distance < 0.145 ){
+                      if( this.distance < 145000 ){
                         this.inmoma = true;
                       }
 
@@ -205,13 +207,13 @@ export class TodoCmp implements OnInit {
 
                       switch (error.code) {
                           case error.PERMISSION_DENIED:
-                              this.message = 'permission denied';
+                              this.message = 'You have to be at SFMOMA to visit or participate in this exhibition. If you don’t allow location access to Unauthorized SFMOMA Show, it is impossible to confirm that you are at SFMOMA right now.';
                               break;
                           case error.POSITION_UNAVAILABLE:
-                              this.message = 'position unavailable';
+                              this.message = 'You have to be at SFMOMA to visit or participate in this exhibition. If you don’t allow location access to Unauthorized SFMOMA Show, it is impossible to confirm that you are at SFMOMA right now.';
                               break;
                           case error.TIMEOUT:
-                              this.message = 'position timeout';
+                              this.message = 'Please, allow location access to Unauthorized SFMOMA Show in order to confirm that you are currently at SFMOMA.';
                               break;
                       }
 
