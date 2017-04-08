@@ -26,11 +26,13 @@
     font-size: 18px;
     width: 100% !important;
     min-height: calc(100vh - 60px);
-    height: auto; }
+    height: auto;
+    text-align: left; }
     .huge.about p {
       display: block;
       margin: 0 auto 1em;
-      max-width: 570px; }
+      max-width: 570px;
+      text-align: left; }
       .huge.about p.conditional {
         font-size: 30px;
         line-height: 36px; }
