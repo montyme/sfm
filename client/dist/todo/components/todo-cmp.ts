@@ -35,6 +35,8 @@ type Todo = {
 export class TodoCmp implements OnInit {
   title: string = "UNAUTHORIZED SFMOMA SHOW";
   file: any;
+  about: boolean = false;
+  menuopen: boolean = false;
   toobig: boolean = false;
   file_url: string = "";
   warning: boolean = true;
@@ -105,24 +107,54 @@ export class TodoCmp implements OnInit {
     }
   }
 
+  togglemenu(): void{
+    if( this.menuopen ){
+      this.menuopen = false;
+    }else{
+      this.menuopen = true;
+    }
+  }
+
+  abouttoggle(): void{
+    this.about = true;
+    this.submiting = false;
+    this.viewing = false;
+    this.isClassVisible = true;
+    if( this.menuopen ){
+      this.menuopen = false;
+    }
+  }
+
   submit(): void{
+    this.about = false;
     this.submiting = true;
     this.viewing = false;
     this.isClassVisible = true;
+    if( this.menuopen ){
+      this.menuopen = false;
+    }
   }
 
   view(): void{
+    this.about = false;
     this._getAll();
     this.submiting = false;
     this.viewing = true;
     this.isClassVisible = true;
+    if( this.menuopen ){
+      this.menuopen = false;
+    }
   }
 
   reset(): void {
     this._getAll();
+    this.about = false;
     this.submiting = false;
     this.viewing = false;
     this.isClassVisible = false;
+    if( this.menuopen ){
+      this.menuopen = false;
+    }
   }
 
   add(todoForm:any): void {

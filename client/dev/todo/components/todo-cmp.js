@@ -19,6 +19,8 @@ var TodoCmp = (function () {
         this.geolocation = geolocation;
         this.zone = zone;
         this.title = "UNAUTHORIZED SFMOMA SHOW";
+        this.about = false;
+        this.menuopen = false;
         this.toobig = false;
         this.file_url = "";
         this.warning = true;
@@ -76,22 +78,51 @@ var TodoCmp = (function () {
             this.toobig = false;
         }
     };
+    TodoCmp.prototype.togglemenu = function () {
+        if (this.menuopen) {
+            this.menuopen = false;
+        }
+        else {
+            this.menuopen = true;
+        }
+    };
+    TodoCmp.prototype.abouttoggle = function () {
+        this.about = true;
+        this.submiting = false;
+        this.viewing = false;
+        this.isClassVisible = true;
+        if (this.menuopen) {
+            this.menuopen = false;
+        }
+    };
     TodoCmp.prototype.submit = function () {
+        this.about = false;
         this.submiting = true;
         this.viewing = false;
         this.isClassVisible = true;
+        if (this.menuopen) {
+            this.menuopen = false;
+        }
     };
     TodoCmp.prototype.view = function () {
+        this.about = false;
         this._getAll();
         this.submiting = false;
         this.viewing = true;
         this.isClassVisible = true;
+        if (this.menuopen) {
+            this.menuopen = false;
+        }
     };
     TodoCmp.prototype.reset = function () {
         this._getAll();
+        this.about = false;
         this.submiting = false;
         this.viewing = false;
         this.isClassVisible = false;
+        if (this.menuopen) {
+            this.menuopen = false;
+        }
     };
     TodoCmp.prototype.add = function (todoForm) {
         var AWSService = window.AWS;
