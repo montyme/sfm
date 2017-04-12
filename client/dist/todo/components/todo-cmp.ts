@@ -134,6 +134,7 @@ export class TodoCmp implements OnInit {
   }
 
   pasttoggle(): void{
+    this._getAll();
     this.currentpast = true;
     this.about = false;
     this.submiting = false;

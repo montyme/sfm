@@ -103,6 +103,7 @@ var TodoCmp = (function () {
         }
     };
     TodoCmp.prototype.pasttoggle = function () {
+        this._getAll();
         this.currentpast = true;
         this.about = false;
         this.submiting = false;
