@@ -52,7 +52,7 @@
         <h2>{{artwork?.todoMessage}}</h2>
         <h3>{{artwork?.todoArtwork}}<span *ngIf="artwork?.todoDate">, {{artwork?.todoDate}}</span></h3>
         <h4>{{artwork?.todoMedium}} <span *ngIf="artwork?.todoSize">({{artwork?.todoSize}})</span></h4>
-        <h5>On view from {{artwork?.createdAt | date:'medium'}} through {{artwork?.prev.createdAt | date:'medium'}}</h5>
+        <h5>On view from {{artwork?.createdAt | date:'medium'}} through {{artwork?.prev?.createdAt | date:'medium'}}</h5>
       </article>
     </div>
   </div>
