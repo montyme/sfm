@@ -90,6 +90,10 @@ export class TodoCmp implements OnInit {
           that.zone.run(() => {
             console.log( 'Got item: ', todos);
             that.all = todos.item.slice(1);
+            for (var i = that.all.length - 1; i >= 0; i--) {
+              that.all[i] = that.all[i];
+              that.all[i].prev = that.all[i-1];
+            }
             that.item = todos.item[0];
             that.count = todos.count;
           });
