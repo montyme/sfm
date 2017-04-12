@@ -7,9 +7,10 @@ const _ = require("lodash");
 
 todoSchema.statics.getAll = () => {
     return new Promise((resolve, reject) => {
-        let _query = { $query: {}, $orderby: { createdAt : 1 } };
+        let _query = {};
 
         Todo.find(_query)
+            .sort('-createdAt')
             .exec((err, todos) => {
               err ? reject(err)
                   : resolve(todos);
