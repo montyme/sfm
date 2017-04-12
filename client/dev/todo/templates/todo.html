@@ -48,7 +48,7 @@
       <hr>
       <h1>PAST:</h1>
       <article *ngFor="let artwork of all; let i = index; ">
-        <h1>UNAUTHORIZED SFMOMA SHOW #{{count - i}}</h1>
+        <h1>UNAUTHORIZED SFMOMA SHOW #{{count - i - 1}}</h1>
         <h2>{{artwork?.todoMessage}}</h2>
         <h3>{{artwork?.todoArtwork}}<span *ngIf="artwork?.todoDate">, {{artwork?.todoDate}}</span></h3>
         <h4>{{artwork?.todoMedium}} <span *ngIf="artwork?.todoSize">({{artwork?.todoSize}})</span></h4>
