@@ -19,6 +19,7 @@ var TodoCmp = (function () {
         this.geolocation = geolocation;
         this.zone = zone;
         this.title = "UNAUTHORIZED SFMOMA SHOW";
+        this.toobig = false;
         this.file_url = "";
         this.warning = true;
         this.located = false;
@@ -67,6 +68,13 @@ var TodoCmp = (function () {
         var file = files[0];
         this.file = file;
         console.log("Selected file: ", this.file);
+        if (this.file.size > 2097152) {
+            console.log("file too big! Max 2MB");
+            this.toobig = true;
+        }
+        else {
+            this.toobig = false;
+        }
     };
     TodoCmp.prototype.submit = function () {
         this.submiting = true;

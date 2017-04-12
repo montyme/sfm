@@ -35,6 +35,7 @@ type Todo = {
 export class TodoCmp implements OnInit {
   title: string = "UNAUTHORIZED SFMOMA SHOW";
   file: any;
+  toobig: boolean = false;
   file_url: string = "";
   warning: boolean = true;
   located: boolean = false;
@@ -96,6 +97,12 @@ export class TodoCmp implements OnInit {
     var file = files[0];
     this.file = file;
     console.log("Selected file: ", this.file );
+    if( this.file.size > 2097152 ){
+      console.log( "file too big! Max 2MB");
+      this.toobig = true;
+    }else {
+      this.toobig = false;
+    }
   }
 
   submit(): void{
