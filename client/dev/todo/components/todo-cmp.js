@@ -20,6 +20,7 @@ var TodoCmp = (function () {
         this.zone = zone;
         this.title = "UNAUTHORIZED SFMOMA SHOW";
         this.about = false;
+        this.submiting = false;
         this.currentpast = false;
         this.menuopen = false;
         this.toobig = false;
@@ -147,6 +148,7 @@ var TodoCmp = (function () {
         }
     };
     TodoCmp.prototype.add = function (todoForm) {
+        this.submiting = true;
         var AWSService = window.AWS;
         console.log(AWSService);
         var file = this.file;
@@ -172,6 +174,7 @@ var TodoCmp = (function () {
                         console.log("added: ", m);
                         that.item = m;
                         that.view();
+                        that.submiting = false;
                     });
                 });
             }

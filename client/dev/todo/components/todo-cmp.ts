@@ -37,6 +37,7 @@ export class TodoCmp implements OnInit {
   all: any;
   file: any;
   about: boolean = false;
+  submiting: boolean = false;
   currentpast: boolean = false;
   menuopen: boolean = false;
   toobig: boolean = false;
@@ -182,6 +183,7 @@ export class TodoCmp implements OnInit {
   }
 
   add(todoForm:any): void {
+    this.submiting = true;
     let AWSService = (<any>window).AWS; 
     console.log(AWSService);
     let file = this.file;
@@ -206,6 +208,7 @@ export class TodoCmp implements OnInit {
               console.log( "added: ", m);
               that.item = m;
               that.view();
+              that.submiting = false;
             });
         });
       }
