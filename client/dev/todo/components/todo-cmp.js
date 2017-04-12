@@ -60,7 +60,7 @@ var TodoCmp = (function () {
             console.log('Todos: ', todos);
             that.zone.run(function () {
                 console.log('Got item: ', todos);
-                that.all = todos.item;
+                that.all = todos.item.slice(1);
                 that.item = todos.item[0];
                 that.count = todos.count;
             });
