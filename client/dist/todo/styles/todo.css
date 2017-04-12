@@ -25,10 +25,14 @@
       .currentpast .inner article h3 {
         font-weight: normal;
         font-style: italic; }
-      .currentpast .inner article h3, .currentpast .inner article h4, .currentpast .inner article h5 {
+        .currentpast .inner article h3 span {
+          font-style: normal !important; }
+      .currentpast .inner article h3, .currentpast .inner article h4 {
         font-size: 18px; }
       .currentpast .inner article h4, .currentpast .inner article h5 {
         font-weight: normal; }
+      .currentpast .inner article h5 {
+        font-size: 15px; }
     .currentpast .inner h1, .currentpast .inner h5 {
       color: #fc4a42; }
     .currentpast .inner h1, .currentpast .inner h2, .currentpast .inner h3, .currentpast .inner h4, .currentpast .inner h5 {
@@ -39,16 +43,11 @@
 
 #nav-toggle {
   position: absolute;
-  right: 20px;
+  right: 0px;
   top: 10px;
   display: block;
-  width: 35px;
-  height: 45px; }
-
-#nav-toggle span {
-  position: absolute;
-  right: 0px;
-  top: 25px; }
+  width: 55px;
+  height: 49px; }
 
 #nav-toggle span,
 #nav-toggle span:before,
@@ -60,7 +59,14 @@
   background: #fc4a42;
   position: absolute;
   display: block;
-  content: ''; }
+  content: '';
+  right: 0px; }
+
+#nav-toggle span {
+  pointer-events: none;
+  position: absolute;
+  right: 10px;
+  top: 25px; }
 
 #nav-toggle span:before {
   top: -10px; }
@@ -88,7 +94,8 @@
         border-bottom: 1px solid #fc4a42;
         color: #000;
         display: block;
-        padding: 0.5em 0;
+        padding: 0.5em 0.5em;
+        line-height: 1.2em;
         text-decoration: none;
         text-transform: uppercase; }
         #hamburger-menu ul li a:hover {
@@ -156,6 +163,10 @@
 
 .shadow {
   box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.3); }
+
+.menuopen {
+  overflow: hidden;
+  height: 100vh; }
 
 .viewing.todo-container .huge,
 .submiting.todo-container .huge {
@@ -320,8 +331,9 @@
   .todo-container .todo-title {
     height: 60px;
     box-sizing: border-box;
-    padding: 1.25em 65px 0.85em;
-    line-height: 1.1em; } }
+    padding: 1.25em 40px 0.85em;
+    line-height: 50px;
+    font-size: 10px; } }
 
 @media screen and (min-width: 1025px) {
   .huge {

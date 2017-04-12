@@ -36,14 +36,22 @@ $primary-color: #fc4a42;
       h3 {
         font-weight: normal;
         font-style: italic;
+
+        span {
+          font-style: normal !important;
+        }
       }
 
-      h3, h4, h5 {
+      h3, h4 {
         font-size: 18px;
       }
 
       h4 , h5 {
         font-weight: normal;
+      }
+
+      h5 {
+        font-size: 15px;
       }
     }
 
@@ -63,9 +71,15 @@ $primary-color: #fc4a42;
   }
 }
 
-#nav-toggle { position: absolute; right: 20px; top: 10px; display: block;
-width: 35px; height: 45px;}
-#nav-toggle span { position: absolute; right: 0px; top: 25px; }
+#nav-toggle { 
+  position: absolute;
+  right: 0px;
+  top: 10px;
+  display: block;
+  width: 55px;
+  height: 49px;
+}
+
 
 #nav-toggle span, 
 #nav-toggle span:before,
@@ -78,10 +92,14 @@ width: 35px; height: 45px;}
   position: absolute;
   display: block;
   content: '';
+  right: 0px;
 }
+#nav-toggle span { pointer-events: none; position: absolute; right: 10px; top: 25px; }
+
 #nav-toggle span:before {
   top: -10px;
 }
+
 #nav-toggle span:after {
   bottom: -10px; 
 }
@@ -444,8 +462,9 @@ width: 35px; height: 45px;}
     .todo-title {
       height: 60px;
       box-sizing: border-box;
-      padding: 1.25em 65px 0.85em;
-      line-height: 1.1em;
+      padding: 1.25em 40px 0.85em;
+      line-height: 50px;
+      font-size: 10px;
     }
   }
 }

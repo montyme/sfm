@@ -3,7 +3,7 @@
      [class.menuopen]="menuopen"
      class="todo-container">
 
-  <h1 [class.shadow]="menuopen || about || isClassVisible" class="todo-title"><span (click)="reset()">{{title}}</span> <a id="nav-toggle" href="#" (click)="togglemenu()"><span (click)="togglemenu()"></span></a></h1>
+  <h1 [class.shadow]="menuopen || about || isClassVisible" class="todo-title"><span (click)="reset()">{{title}}</span> <a id="nav-toggle" href="#" (click)="togglemenu()"><span></span></a></h1>
 
   <nav id="hamburger-menu" *ngIf="menuopen">
     <ul>
