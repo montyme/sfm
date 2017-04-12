@@ -90,7 +90,7 @@ export class TodoCmp implements OnInit {
           that.zone.run(() => {
             console.log( 'Got item: ', todos);
             that.all = todos.item;
-            that.item = todos.item[todos.count - 1];
+            that.item = todos.item[0];
             that.count = todos.count;
           });
         });
