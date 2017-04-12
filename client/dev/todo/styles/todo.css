@@ -22,6 +22,11 @@
       margin-bottom: 2em; }
       .currentpast .inner article h1 {
         color: #000; }
+      .currentpast .inner article h3 {
+        font-weight: normal;
+        font-style: italic; }
+      .currentpast .inner article h4, .currentpast .inner article h4 {
+        font-weight: normal; }
     .currentpast .inner h1, .currentpast .inner h5 {
       color: #fc4a42; }
     .currentpast .inner h1, .currentpast .inner h2, .currentpast .inner h3, .currentpast .inner h4, .currentpast .inner h5 {

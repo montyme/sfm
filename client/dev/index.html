@@ -67,6 +67,12 @@
         }
       }
     </style>
+    <script type="text/javascript">
+      history.pushState(null, null, document.URL);
+      window.addEventListener('popstate', function () {
+          history.pushState(null, null, document.URL);
+      });
+    </script>
     <title>UNAUTHORIZED SFMOMA SHOW</title>
   </head>
   <body>
