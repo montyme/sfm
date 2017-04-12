@@ -20,6 +20,7 @@ var TodoCmp = (function () {
         this.zone = zone;
         this.title = "UNAUTHORIZED SFMOMA SHOW";
         this.about = false;
+        this.currentpast = true;
         this.menuopen = false;
         this.toobig = false;
         this.file_url = "";
@@ -50,7 +51,6 @@ var TodoCmp = (function () {
     }
     TodoCmp.prototype.ngOnInit = function () {
         this._getAll();
-        this.getCurrentPosition();
     };
     TodoCmp.prototype._getAll = function () {
         var that = this;
@@ -60,7 +60,8 @@ var TodoCmp = (function () {
             console.log('Todos: ', todos);
             that.zone.run(function () {
                 console.log('Got item: ', todos);
-                that.item = todos.item;
+                that.all = todos.item;
+                that.item = todos.item[todos.count - 1];
                 that.count = todos.count;
             });
         });
@@ -105,6 +106,7 @@ var TodoCmp = (function () {
         }
     };
     TodoCmp.prototype.view = function () {
+        this.getCurrentPosition();
         this.about = false;
         this._getAll();
         this.submiting = false;

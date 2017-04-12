@@ -2,12 +2,12 @@
      [class.viewing]="viewing" 
      class="todo-container">
 
-  <h1 [class.shadow]="menuopen" [class.shadow]="about" [class.shadow]="isClassVisible" class="todo-title"><span (click)="reset()">{{title}}</span> <a id="nav-toggle" href="#" (click)="togglemenu()"><span (click)="togglemenu()"></span></a></h1>
+  <h1 [class.shadow]="menuopen || about || isClassVisible" class="todo-title"><span (click)="reset()">{{title}}</span> <a id="nav-toggle" href="#" (click)="togglemenu()"><span (click)="togglemenu()"></span></a></h1>
 
   <nav id="hamburger-menu" *ngIf="menuopen">
     <ul>
       <li><a (click)="abouttoggle()" href="#">About</a></li>
-      <!-- <li><a href="#">Current and Past Exhibitions</a></li> -->
+      <li><a href="#">Current and Past Exhibitions</a></li>
       <li><a (click)="view()" href="#">I want to see the exhibition</a></li>
       <li><a (click)="submit()" href="#">I want to have an unauthorized sfmoma solo show</a></li>
     </ul>
@@ -32,6 +32,28 @@
 
       <h3>Follow us</h3>
       <p>In <a href="https://www.facebook.com/Unauthorized-SFMOMA-Show-275989972854131/" target="_blank">Facebook</a>, <a href="https://twitter.com/unsfmomashow" target="_blank">Twitter</a>, <a href="https://www.instagram.com/unauthorizedsfmomashow/" target="_blank">Instagram</a></p>
+    </div>
+  </div>
+
+  <div class="currentpast" *ngIf="currentpast">
+    <div class="inner">
+      <h1>CURRENT:</h1>
+      <article>
+        <h1>UNAUTHORIZED SFMOMA SHOW #{{count}}</h1>
+        <h2>{{item?.todoMessage}}</h2>
+        <h3>{{item?.todoArtwork}}, {{item?.todoDate}}</h3>
+        <h4 *ngIf="item?.todoMedium">{{item?.todoMedium}} <span *ngIf="item?.todoSize">({{item?.todoSize}})</span></h4>
+        <h5>On view from {{item?.createdAt | date:'medium'}} through now.</h5>
+      </article>
+      <hr>
+      <h1>PAST:</h1>
+      <article *ngFor="let artwork of all; let i = index; ">
+        <h1>UNAUTHORIZED SFMOMA SHOW #{{count - i}}</h1>
+        <h2>{{artwork?.todoMessage}}</h2>
+        <h3>{{artwork?.todoArtwork}}, {{artwork?.todoDate}}</h3>
+        <h4>{{artwork?.todoMedium}} <span *ngIf="artwork?.todoSize">({{artwork?.todoSize}})</span></h4>
+        <h5>On view from {{artwork?.createdAt | date:'medium'}} through ...</h5>
+      </article>
     </div>
   </div>
 
@@ -153,7 +175,7 @@
          <h1>UNAUTHORIZED SFMOMA SHOW #{{count}}:</h1>
          <div class="art">
           <h2>{{item?.todoMessage}}</h2>
-          <h3>{{item?.todoArtwork}}</h3>
+          <h3>{{item?.todoArtwork}}, {{item?.todoDate}}</h3>
           <h4 *ngIf="item?.todoSize">{{item?.todoSize}}</h4>
           <h5 *ngIf="item?.todoMedium">{{item?.todoMedium}}</h5>
 

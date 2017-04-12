@@ -8,6 +8,27 @@
     text-align: left; }
     .about_page .inner h3 {
       margin-bottom: 0em; }
+    .about_page .inner p {
+      margin-top: 0; }
+
+.currentpast {
+  background-color: #fff;
+  padding: 2em 0; }
+  .currentpast .inner {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: left; }
+    .currentpast .inner article {
+      margin-bottom: 2em; }
+      .currentpast .inner article h1 {
+        color: #000; }
+    .currentpast .inner h1, .currentpast .inner h5 {
+      color: #fc4a42; }
+    .currentpast .inner h1, .currentpast .inner h2, .currentpast .inner h3, .currentpast .inner h4, .currentpast .inner h5 {
+      margin: 0; }
+    .currentpast .inner hr {
+      width: 10px;
+      display: inline-block; }
 
 #nav-toggle {
   position: absolute;
@@ -81,7 +102,7 @@
   height: calc( 50vh - 30px);
   width: 100%;
   line-height: 1.1em;
-  font-size: 4.8em;
+  font-size: 4.4em;
   font-weight: 500;
   text-decoration: none;
   padding: 1em 0.5em;

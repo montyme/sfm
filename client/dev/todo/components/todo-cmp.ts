@@ -34,8 +34,10 @@ type Todo = {
 })
 export class TodoCmp implements OnInit {
   title: string = "UNAUTHORIZED SFMOMA SHOW";
+  all: any;
   file: any;
   about: boolean = false;
+  currentpast: boolean = true;
   menuopen: boolean = false;
   toobig: boolean = false;
   file_url: string = "";
@@ -77,7 +79,6 @@ export class TodoCmp implements OnInit {
 
   ngOnInit() {
     this._getAll();
-    this.getCurrentPosition();
   }
 
   private _getAll(): void {
@@ -88,7 +89,8 @@ export class TodoCmp implements OnInit {
           console.log('Todos: ', todos);
           that.zone.run(() => {
             console.log( 'Got item: ', todos);
-            that.item = todos.item;
+            that.all = todos.item;
+            that.item = todos.item[todos.count - 1];
             that.count = todos.count;
           });
         });
@@ -136,6 +138,7 @@ export class TodoCmp implements OnInit {
   }
 
   view(): void{
+    this.getCurrentPosition();
     this.about = false;
     this._getAll();
     this.submiting = false;
