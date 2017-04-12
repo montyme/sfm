@@ -25,7 +25,9 @@
       .currentpast .inner article h3 {
         font-weight: normal;
         font-style: italic; }
-      .currentpast .inner article h4, .currentpast .inner article h4 {
+      .currentpast .inner article h3, .currentpast .inner article h4, .currentpast .inner article h5 {
+        font-size: 18px; }
+      .currentpast .inner article h4, .currentpast .inner article h5 {
         font-weight: normal; }
     .currentpast .inner h1, .currentpast .inner h5 {
       color: #fc4a42; }

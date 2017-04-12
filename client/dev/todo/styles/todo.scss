@@ -38,7 +38,11 @@ $primary-color: #fc4a42;
         font-style: italic;
       }
 
-      h4 , h4 {
+      h3, h4, h5 {
+        font-size: 18px;
+      }
+
+      h4 , h5 {
         font-weight: normal;
       }
     }
