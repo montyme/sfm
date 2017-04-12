@@ -37,7 +37,7 @@ export class TodoCmp implements OnInit {
   all: any;
   file: any;
   about: boolean = false;
-  currentpast: boolean = true;
+  currentpast: boolean = false;
   menuopen: boolean = false;
   toobig: boolean = false;
   file_url: string = "";
