@@ -201,6 +201,10 @@ width: 35px; height: 45px;}
   box-shadow: 0 0 30px 10px rgba(0,0,0,0.3);
 }
 
+.menuopen {
+  overflow: hidden;
+  height: 100vh;
+}
 .viewing.todo-container ,
 .submiting.todo-container {
   .huge{

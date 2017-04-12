@@ -1,5 +1,6 @@
 <div [class.submiting]="submiting"
      [class.viewing]="viewing" 
+     [class.menuopen]="menuopen"
      class="todo-container">
 
   <h1 [class.shadow]="menuopen || about || isClassVisible" class="todo-title"><span (click)="reset()">{{title}}</span> <a id="nav-toggle" href="#" (click)="togglemenu()"><span (click)="togglemenu()"></span></a></h1>
@@ -9,7 +10,7 @@
       <li><a (click)="abouttoggle()" href="#">About</a></li>
       <li><a (click)="pasttoggle()" href="#">Current and Past Exhibitions</a></li>
       <li><a (click)="view()" href="#">I want to see the exhibition</a></li>
-      <li><a (click)="submit()" href="#">I want to have an unauthorized sfmoma solo show</a></li>
+      <li><a (click)="submit()" href="#">I want to have an unauthorized sfmoma show</a></li>
     </ul>
   </nav>
 
