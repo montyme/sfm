@@ -123,6 +123,7 @@ export class TodoCmp implements OnInit {
   }
 
   abouttoggle(): void{
+    this.currentpast = false;
     this.about = true;
     this.submiting = false;
     this.viewing = false;
@@ -132,7 +133,19 @@ export class TodoCmp implements OnInit {
     }
   }
 
+  pasttoggle(): void{
+    this.currentpast = true;
+    this.about = false;
+    this.submiting = false;
+    this.viewing = false;
+    this.isClassVisible = true;
+    if( this.menuopen ){
+      this.menuopen = false;
+    }
+  }
+
   submit(): void{
+    this.currentpast = false;
     this.about = false;
     this.submiting = true;
     this.viewing = false;
@@ -143,9 +156,10 @@ export class TodoCmp implements OnInit {
   }
 
   view(): void{
-    this.getCurrentPosition();
-    this.about = false;
     this._getAll();
+    this.getCurrentPosition();
+    this.currentpast = false;
+    this.about = false;
     this.submiting = false;
     this.viewing = true;
     this.isClassVisible = true;
@@ -157,6 +171,7 @@ export class TodoCmp implements OnInit {
   reset(): void {
     this._getAll();
     this.about = false;
+    this.currentpast = false;
     this.submiting = false;
     this.viewing = false;
     this.isClassVisible = false;

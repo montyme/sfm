@@ -7,7 +7,7 @@
   <nav id="hamburger-menu" *ngIf="menuopen">
     <ul>
       <li><a (click)="abouttoggle()" href="#">About</a></li>
-      <li><a href="#">Current and Past Exhibitions</a></li>
+      <li><a (click)="pasttoggle()" href="#">Current and Past Exhibitions</a></li>
       <li><a (click)="view()" href="#">I want to see the exhibition</a></li>
       <li><a (click)="submit()" href="#">I want to have an unauthorized sfmoma solo show</a></li>
     </ul>
@@ -194,7 +194,7 @@
     </div>
   </div>
 
-  <a (click)="submit()" class="huge exhibit" href="#" *ngIf="!submiting && !about">I WANT TO HAVE AN UNAUTHORIZED SFMOMA SHOW</a>
+  <a (click)="submit()" class="huge exhibit" href="#" *ngIf="!submiting && !about && !currentpast">I WANT TO HAVE AN UNAUTHORIZED SFMOMA SHOW</a>
 
-  <a (click)="view()" class="huge see" href="#" *ngIf="!viewing && !about">I WANT TO VISIT THE CURRENT UNAUTHORIZED SFMOMA SHOW</a>
+  <a (click)="view()" class="huge see" href="#" *ngIf="!viewing && !about && !currentpast">I WANT TO VISIT THE CURRENT UNAUTHORIZED SFMOMA SHOW</a>
 </div>

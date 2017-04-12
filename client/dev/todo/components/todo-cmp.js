@@ -93,6 +93,7 @@ var TodoCmp = (function () {
         }
     };
     TodoCmp.prototype.abouttoggle = function () {
+        this.currentpast = false;
         this.about = true;
         this.submiting = false;
         this.viewing = false;
@@ -101,7 +102,18 @@ var TodoCmp = (function () {
             this.menuopen = false;
         }
     };
+    TodoCmp.prototype.pasttoggle = function () {
+        this.currentpast = true;
+        this.about = false;
+        this.submiting = false;
+        this.viewing = false;
+        this.isClassVisible = true;
+        if (this.menuopen) {
+            this.menuopen = false;
+        }
+    };
     TodoCmp.prototype.submit = function () {
+        this.currentpast = false;
         this.about = false;
         this.submiting = true;
         this.viewing = false;
@@ -111,9 +123,10 @@ var TodoCmp = (function () {
         }
     };
     TodoCmp.prototype.view = function () {
-        this.getCurrentPosition();
-        this.about = false;
         this._getAll();
+        this.getCurrentPosition();
+        this.currentpast = false;
+        this.about = false;
         this.submiting = false;
         this.viewing = true;
         this.isClassVisible = true;
@@ -124,6 +137,7 @@ var TodoCmp = (function () {
     TodoCmp.prototype.reset = function () {
         this._getAll();
         this.about = false;
+        this.currentpast = false;
         this.submiting = false;
         this.viewing = false;
         this.isClassVisible = false;
