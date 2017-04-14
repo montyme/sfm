@@ -116,7 +116,7 @@ var TodoCmp = (function () {
     TodoCmp.prototype.submit = function () {
         this.currentpast = false;
         this.about = false;
-        this.submiting = true;
+        this.submiting = false;
         this.viewing = false;
         this.isClassVisible = true;
         if (this.menuopen) {

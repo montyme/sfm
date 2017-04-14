@@ -148,7 +148,7 @@ export class TodoCmp implements OnInit {
   submit(): void{
     this.currentpast = false;
     this.about = false;
-    this.submiting = true;
+    this.submiting = false;
     this.viewing = false;
     this.isClassVisible = true;
     if( this.menuopen ){
