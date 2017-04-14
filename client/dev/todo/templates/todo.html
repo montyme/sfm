@@ -129,12 +129,12 @@
     </label>
     <label for="file">
       <span class="red">*</span>File:<br> <small class="red" *ngIf="toobig">The file you selected is too big. Maximum file size allowed is 2MB.</small>
-          <input id="file" class="text-input" type="file"
+          <input id="file" class="text-input" type="file" accept="image/*" 
            (change)="fileEvent($event)" required
                       />
     </label>
 
-    <button type="submit" [disabled]="!file || toobig">UPLOAD</button>
+    <button type="submit" [disabled]="!file || toobig || !submiting">UPLOAD</button>
 
     <div id="tyc">
       <h3>SHOW TERMS AND CONDITIONS</h3>
