@@ -40,7 +40,6 @@ var TodoCmp = (function () {
             todoEmail: 0,
             file_url: 0
         };
-        this.submiting = false;
         this.viewing = false;
         this.message = 'Please, allow location access to Unauthorized SFMOMA Show in order to confirm that you are currently at SFMOMA.';
         this.todos = [];

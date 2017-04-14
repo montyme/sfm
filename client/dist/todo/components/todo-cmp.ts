@@ -57,7 +57,6 @@ export class TodoCmp implements OnInit {
     todoEmail: 0,
     file_url: 0
   };
-  submiting: boolean = false;
   viewing: boolean = false;
   message: string = 'Please, allow location access to Unauthorized SFMOMA Show in order to confirm that you are currently at SFMOMA.';
   todos: Todo[] = [];
