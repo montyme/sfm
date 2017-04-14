@@ -20,6 +20,7 @@ var TodoCmp = (function () {
         this.zone = zone;
         this.title = "UNAUTHORIZED SFMOMA SHOW";
         this.about = false;
+        this.adding = false;
         this.submiting = false;
         this.currentpast = false;
         this.menuopen = false;
@@ -96,6 +97,7 @@ var TodoCmp = (function () {
         this.currentpast = false;
         this.about = true;
         this.submiting = false;
+        this.adding = false;
         this.viewing = false;
         this.isClassVisible = true;
         if (this.menuopen) {
@@ -107,6 +109,7 @@ var TodoCmp = (function () {
         this.currentpast = true;
         this.about = false;
         this.submiting = false;
+        this.adding = false;
         this.viewing = false;
         this.isClassVisible = true;
         if (this.menuopen) {
@@ -116,7 +119,8 @@ var TodoCmp = (function () {
     TodoCmp.prototype.submit = function () {
         this.currentpast = false;
         this.about = false;
-        this.submiting = false;
+        this.submiting = true;
+        this.adding = false;
         this.viewing = false;
         this.isClassVisible = true;
         if (this.menuopen) {
@@ -128,6 +132,7 @@ var TodoCmp = (function () {
         this.getCurrentPosition();
         this.currentpast = false;
         this.about = false;
+        this.adding = false;
         this.submiting = false;
         this.viewing = true;
         this.isClassVisible = true;
@@ -140,6 +145,7 @@ var TodoCmp = (function () {
         this.about = false;
         this.currentpast = false;
         this.submiting = false;
+        this.adding = false;
         this.viewing = false;
         this.isClassVisible = false;
         if (this.menuopen) {
@@ -147,6 +153,7 @@ var TodoCmp = (function () {
         }
     };
     TodoCmp.prototype.add = function (todoForm) {
+        this.adding = true;
         this.submiting = true;
         var AWSService = window.AWS;
         console.log(AWSService);
@@ -173,7 +180,7 @@ var TodoCmp = (function () {
                         console.log("added: ", m);
                         that.item = m;
                         that.pasttoggle();
-                        that.submiting = false;
+                        that.adding = false;
                     });
                 });
             }

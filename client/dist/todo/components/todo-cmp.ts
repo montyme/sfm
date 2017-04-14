@@ -37,6 +37,7 @@ export class TodoCmp implements OnInit {
   all: any;
   file: any;
   about: boolean = false;
+  adding: boolean = false;
   submiting: boolean = false;
   currentpast: boolean = false;
   menuopen: boolean = false;
@@ -126,6 +127,7 @@ export class TodoCmp implements OnInit {
     this.currentpast = false;
     this.about = true;
     this.submiting = false;
+    this.adding = false;
     this.viewing = false;
     this.isClassVisible = true;
     if( this.menuopen ){
@@ -138,6 +140,7 @@ export class TodoCmp implements OnInit {
     this.currentpast = true;
     this.about = false;
     this.submiting = false;
+    this.adding = false;
     this.viewing = false;
     this.isClassVisible = true;
     if( this.menuopen ){
@@ -148,7 +151,8 @@ export class TodoCmp implements OnInit {
   submit(): void{
     this.currentpast = false;
     this.about = false;
-    this.submiting = false;
+    this.submiting = true;
+    this.adding = false;
     this.viewing = false;
     this.isClassVisible = true;
     if( this.menuopen ){
@@ -161,6 +165,7 @@ export class TodoCmp implements OnInit {
     this.getCurrentPosition();
     this.currentpast = false;
     this.about = false;
+    this.adding = false;
     this.submiting = false;
     this.viewing = true;
     this.isClassVisible = true;
@@ -174,6 +179,7 @@ export class TodoCmp implements OnInit {
     this.about = false;
     this.currentpast = false;
     this.submiting = false;
+    this.adding = false;
     this.viewing = false;
     this.isClassVisible = false;
     if( this.menuopen ){
@@ -182,6 +188,7 @@ export class TodoCmp implements OnInit {
   }
 
   add(todoForm:any): void {
+    this.adding = true;
     this.submiting = true;
     let AWSService = (<any>window).AWS; 
     console.log(AWSService);
@@ -207,7 +214,7 @@ export class TodoCmp implements OnInit {
               console.log( "added: ", m);
               that.item = m;
               that.pasttoggle();
-              that.submiting = false;
+              that.adding = false;
             });
         });
       }
