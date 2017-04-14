@@ -5,13 +5,18 @@ node_js:
 
 before_script:
   - npm install -g bower gulp-cli mocha
-  - npm run-script test-on-travis
+  - npm install
   - bower install
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
 
 script:
-  - gulp coverage_frontend
-  - npm run-script test-on-travis
+  - npm run build dist
+  
+after_success:
+  - push.sh
+env:
+  global:
+    secure: "iPlZ2RlII37MiCaWmNLmYObf1C3M2Y9jLIBIEEfhIk/iW4D0SV/cCqSGicAl/cJYu348vGTdPMCZ91z7JLoQ4OV28sK31S708tQormDYhUV/5ld3x99Mf+t/cXzkCEjgwCo9apVHnLF+iESiMjiVKeWhTuGVPgZ4jkM37657GZ4hJTTYe2+AuJYK7QvsHB9DnDSN1PXCuH+AHKxby8X8ZXoJEZPtD13Z+No1wEyPhobg3oy3ZwKkC8QWfvz28r9TUUwN6JKygVJKGwF6KyNvFdFlYIPLDZWrCEENUpndfKdxDh7WHDc3Jwsc0LCSSSPq6ZuS6ts9kt9dN9tdsD1F8bNVdjbfn+7oBdCVG9RJYJ2PjeRqFK4Zcw5F1i8uKE878XlneQasxjW9nqLnhNqk7yY40aASafUXnJQ83R0lIpzAywk4s+mFYf+Z3O834LEkqKWOJ25YO5+5whqupQbWwNGgbK819baSBspEdY3HubkO3VLcftnqrHMeMTr3WcQMAD4eQd8OPWaTQ5zAbF7sB5mUMOji1khak3ea8M3rOfz7O1TsQrrjwRUwNDGcDb/0gpGKQDkEmri1rMnJcvZgcz608Dtc+p9FGiEIqy5Q/rq/XhwZE0wSx35+b6pK46vBd+angudgPcqikwNnKnfrtxIBm46Is90HlMVtJtGvZd8="
 
 services: mongodb
