@@ -172,7 +172,7 @@ var TodoCmp = (function () {
                     that.zone.run(function () {
                         console.log("added: ", m);
                         that.item = m;
-                        that.view();
+                        that.pasttoggle();
                         that.submiting = false;
                     });
                 });

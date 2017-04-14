@@ -206,7 +206,7 @@ export class TodoCmp implements OnInit {
             that.zone.run(() => { 
               console.log( "added: ", m);
               that.item = m;
-              that.view();
+              that.pasttoggle();
               that.submiting = false;
             });
         });
